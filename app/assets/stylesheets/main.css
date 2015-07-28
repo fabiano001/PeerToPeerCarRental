@@ -1,0 +1,18 @@
+.form-control{
+  .box-shadow(none) !important;
+  .transition;
+  .rounded-corners(3px);
+  font-size:13px;
+  border-color:#ddd;
+}
+
+.form-control:focus{
+  .box-shadow(none) !important;
+  background: #fafafa;
+  border-color:#eee;
+  .transition;
+}
+
+.form-signin-heading {
+  color: #FFFFFF;
+}
