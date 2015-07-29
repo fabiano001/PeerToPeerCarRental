@@ -407,9 +407,9 @@ h6 {
   transition: opacity 500ms ease-out;
 }
 .form-control {
-  -webkit-box-shadow: none !important;
-  -moz-box-shadow: none !important;
-  box-shadow: none !important;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
   -webkit-transition: all .25s ease-in-out;
   -moz-transition: all .25s ease-in-out;
   -ms-transition: all .25s ease-in-out;
@@ -424,9 +424,9 @@ h6 {
   border-color: #ddd;
 }
 .form-control:focus {
-  -webkit-box-shadow: none !important;
-  -moz-box-shadow: none !important;
-  box-shadow: none !important;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
   background: #fafafa;
   border-color: #eee;
   -webkit-transition: all .25s ease-in-out;

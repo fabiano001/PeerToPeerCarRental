@@ -1,0 +1,18 @@
+1) Login to heroku from the terminal
+
+heroku login
+
+2) Update gem file and bundle install
+
+# heroku deployment
+gem 'rails_12factor', group: :production
+bundle install
+
+3) Create the application in heroku from the terminal
+heroku create
+
+4) rename application in the terminal
+heroku rename rent-my-car
+
+5) Deploy (from the terminal)
+git push heroku master
