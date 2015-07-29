@@ -1,0 +1,12 @@
+Tool to find stuff within your code easily
+
+1) brew install ack
+
+2) create a .ackrc in root folder of project with the following:
+
+--ignore-dir=tmp
+--ignore-dir=log
+
+3) then on command line:
+
+ack string_to_search_for
