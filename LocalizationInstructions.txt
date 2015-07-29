@@ -1,0 +1,40 @@
+Localization Instructions
+
+1) Create the yaml language files under /config/locales, one for each language you're going to support
+en.yml for english
+pt.yml for portuguese
+
+2) Every string in you application should be passed to the t function
+
+3) Uncomment the line below in the /config/locales/application.rb (sets default language)
+config.i18n.default_locale = :en
+
+4) Create method in application_controller.rb
+
+before_action(:set_locale)
+
+  def set_locale
+  	I18n.locale = params[:locale]
+  end
+
+5) For every string in your code use the t function as such:
+
+<%= t('welcome_to_rent_my_car') %>
+
+then on the yaml file (step 1), add the localization of that string for each language
+
+welcome_to_rent_my_car: "Welcome To Rent My Car"  in en.yml
+welcome_to_rent_my_car: "Seja bem vindo ao Rent My Car" in pt.yml
+
+6) then you can pass locale=pt or locale=en
+
+Alternatively, if you set a route such as
+
+get '/:locale' => 'pages#home'
+
+thenn you can do:
+
+http://localhost:3000/en or http://localhost:3000/pt
+
+
+

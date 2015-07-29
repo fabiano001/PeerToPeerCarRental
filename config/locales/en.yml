@@ -20,4 +20,5 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  Home: "Home"
+  welcome_to_rent_my_car: "Welcome To Rent My Car"
