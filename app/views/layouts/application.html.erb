@@ -1,264 +1,259 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A new way to rent car and make money">
-  <meta name="author" content="">
-
-  <title>Rent Your Car Today - Make additional income</title>
-
-  <!-- Custom CSS -->
-
-  <!-- Custom Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-  
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body id="page-top" class="index">
-
-  <!-- Navigation -->
-  <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header page-scroll">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-              </button>
-              <!--add logo here!!<a class="navbar-brand page-scroll" href="#page-top">Start Bootstrap</a>-->
-          </div>
-
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav navbar-right">
-                  <li class="hidden">
-                      <a href="#page-top"></a>
-                  </li>
-                  <li>
-                      <a class="page-scroll" href="#services">Car Owners</a>
-                  </li>
-                  <li>
-                      <a class="page-scroll" href="#portfolio">Renters</a>
-                  </li>
-                  <li>
-                      <a class="page-scroll" href="#about">How It Works</a>
-                  </li>
-                  <% if(current_user) %>
-                    <li>
-                      <%= link_to "My Account", "/account"%>
-                    </li>
-                    <li>
-                      <%= link_to "Logout", destroy_user_session_path, method: :delete%>
-                    </li>
-                  <% else %>
-                    <li>
-                      <%= link_to "Sign Up", "#", class: "signup-link" %>
-                    </li>
-                    <li>
-                      <%= link_to "Log In", "#", class: "login-link" %>
-                    </li>
-                  <% end %>
-              </ul>
-          </div>
-          <!-- /.navbar-collapse -->
-      </div>
-      <!-- /.container-fluid -->
-  </nav>
-
-
-  <!-- Header -->
-  <header>
-      <div class="container">
-          <div class="intro-text">
-              <div class="intro-lead-in header-toggle"><%= t('welcome_to_rent_my_car') %>!</div>
-              <div class="intro-heading header-toggle">A Peer-to-Peer Car Rental Market Place</div>
-              <!--<a href="#services" class="test page-scroll btn btn-xl">Tell Me More</a>-->
-
-              <div class="col-lg-6 col-lg-offset-3 header-toggle">
-                <div class="row input-group">
-                  <div class="col-lg-6">
-                    <input type="text" class="form-control page-scroll" placeholder="Enter City or Airport...">
-                  </div>
-                  <div class="col-lg-4 col-lg-offset-0.5">
-                    <span class="input-group-btn ">
-                      <button class="btn btn-default page-scroll" type="button">Find My Rental</button>
-                    </span>
-                  </div>
-                </div><!-- /input-group -->
-              </div><!-- /.col-lg-6 -->
-          </div>
-      </div>
-  </header>
-
-  <section id="page-content">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <%= yield %>
-        </div>
-      </div>
-    </div>
-  </section>
-
-    <!-- Services Section -->
-  <section id="services">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2 class="section-heading">Car Owners</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-            </div>
-        </div>
-        <div class="row text-center">
-            <div class="col-md-4">
-                <span class="fa-stack fa-4x">
-                    <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                    <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
-                </span>
-                <h4 class="service-heading">E-Commerce</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-            </div>
-            <div class="col-md-4">
-                <span class="fa-stack fa-4x">
-                    <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                    <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
-                </span>
-                <h4 class="service-heading">Responsive Design</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-            </div>
-            <div class="col-md-4">
-                <span class="fa-stack fa-4x">
-                    <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                    <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
-                </span>
-                <h4 class="service-heading">Web Security</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-            </div>
-        </div>
-    </div>
-  </section>
-
-  <section id="services2">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2 class="section-heading">Renters</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-            </div>
-        </div>
-        <div class="row text-center">
-            <div class="col-md-4">
-                <span class="fa-stack fa-4x">
-                    <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                    <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
-                </span>
-                <h4 class="service-heading">E-Commerce</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-            </div>
-            <div class="col-md-4">
-                <span class="fa-stack fa-4x">
-                    <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                    <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
-                </span>
-                <h4 class="service-heading">Responsive Design</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-            </div>
-            <div class="col-md-4">
-                <span class="fa-stack fa-4x">
-                    <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                    <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
-                </span>
-                <h4 class="service-heading">Web Security</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-            </div>
-        </div>
-    </div>
-  </section>
-
-  <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; Your Website 2014</span>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="A new way to rent car and make money">
+        <meta name="author" content="">
+        <title>Rent Your Car Today - Make additional income</title>
+        <!-- Custom CSS -->
+        <!-- Custom Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+        
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags %>
+    </head>
+    <body id="page-top" class="index">
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <!--add logo here!!<a class="navbar-brand page-scroll" href="#page-top">Start Bootstrap</a>-->
                 </div>
-                <div class="col-md-4">
-                    <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="hidden">
+                            <a href="#page-top"></a>
                         </li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+                        <li>
+                            <a class="page-scroll" href="#services">Car Owners</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                        <li>
+                            <a class="page-scroll" href="#portfolio">Renters</a>
                         </li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline quicklinks">
-                        <li><a href="#">Privacy Policy</a>
+                        <li>
+                            <a class="page-scroll" href="#about">How It Works</a>
                         </li>
-                        <li><a href="#">Terms of Use</a>
+                        <% if(current_user) %>
+                        <li>
+                            <%= link_to "My Account", "/account"%>
                         </li>
+                        <li>
+                            <%= link_to "Logout", destroy_user_session_path, method: :delete%>
+                        </li>
+                        <% else %>
+                        <li>
+                            <%= link_to "Sign Up", "#", class: "signup-link" %>
+                        </li>
+                        <li>
+                            <%= link_to "Log In", "#", class: "login-link" %>
+                        </li>
+                        <% end %>
                     </ul>
                 </div>
             </div>
+        </nav>
+        <!-- Header -->
+        <header>
+            <div class="container-fluid">
+                <div class="row center-block">
+                    <div class="intro-text">
+                        <div class="row intro-lead-in header-toggle"><%= t('welcome_to_rent_my_car') %>!</div>
+                        <div class="row header-focus">
+                            <div class="container">
+                                <div class="col-lg-5 header-toggle">
+                                    <div class="row">
+                                        <label class="header-label">Car Renters</label>
+                                    </div>
+                                    <div class="row renter-msgs-carousel-row">
+                                        <div class="col-lg-12">
+                                            <div id="myCarousel" class="carousel" data-ride="carousel">
+                                                <!-- Wrapper for slides -->
+                                                <div class="carousel-inner" role="listbox">
+                                                    <div class="item active carousel-item">
+                                                        <label class="seller-message">Rent directly from car owners and save!</label>
+                                                    </div>
+                                                    <div class="item carousel-item">
+                                                        <label class="seller-message">Your payment is held in escrow until you get the keys to the car.</label>
+                                                    </div>
+                                                    
+                                                    <div class="item carousel-item">
+                                                        <label class="seller-message">Thousands of cars to choose from to meet your car rental needs.</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><!--/col-lg-6 col-lg-offset-3-->
+                                    </div> <!--/row renter-msgs-carousel-row-->
+                                    <div class="row cars-carousel-row">
+                                        <div class="col-lg-6 col-lg-offset-3">
+                                            <div id="myCarousel" class="carousel" data-ride="carousel">
+                                                <!-- Wrapper for slides -->
+                                                <div class="carousel-inner" role="listbox">
+                                                    <div class="item active carousel-item">
+                                                        <img src="/assets/cars/car1.jpg" alt="Chania">
+                                                    </div>
+                                                    <div class="item carousel-item">
+                                                        <img src="/assets/cars/car2.jpg" alt="Chania">
+                                                    </div>
+                                                    
+                                                    <div class="item carousel-item">
+                                                        <img src="/assets/cars/car3.jpg" alt="Flower">
+                                                    </div>
+                                                    <div class="item carousel-item">
+                                                        <img src="/assets/cars/car4.jpg" alt="Flower">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><!--/col-lg-6 col-lg-offset-3-->
+                                    </div> <!--/row cars-carousel-row-->
+                                </div>
+                                <div class="col-lg-5 col-lg-offset-2 header-toggle">
+                                    <div>
+                                        <label class="header-label">Car Owners</label>
+                                    </div>
+                                    <div class="row renter-msgs-carousel-row">
+                                        <div class="col-lg-12">
+                                            <div id="myCarousel" class="carousel" data-ride="carousel">
+                                                <!-- Wrapper for slides -->
+                                                <div class="carousel-inner" role="listbox">
+                                                    <div class="item active carousel-item">
+                                                        <label class="seller-message">Make money from your car when it's not in use!</label>
+                                                    </div>
+                                                    <div class="item carousel-item">
+                                                        <label class="seller-message">Easy and safe! We verify the identity of renters and owners.</label>
+                                                    </div>
+                                                    <div class="item carousel-item">
+                                                        <label class="seller-message">We hold the payment and deposit right into your account when the renter takes the car!</label>
+                                                    </div>
+                                                    <div class="item carousel-item">
+                                                        <label class="seller-message">For a limited time, we are only charging a service fee of 5% of the total rental price!</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><!--/col-lg-6 col-lg-offset-3-->
+                                    </div> <!--/row renter-msgs-carousel-row-->
+                                    <div class="row cars-carousel-row">
+                                        <div class="col-lg-6 col-lg-offset-3">
+                                            <div id="myCarousel" class="carousel" data-ride="carousel">
+                                                <!-- Wrapper for slides -->
+                                                <div class="carousel-inner" role="listbox">
+                                                    <div class="item active carousel-item">
+                                                        <img src="/assets/cars/car1.jpg" alt="Chania">
+                                                    </div>
+                                                    <div class="item carousel-item">
+                                                        <img src="/assets/cars/car2.jpg" alt="Chania">
+                                                    </div>
+                                                    
+                                                    <div class="item carousel-item">
+                                                        <img src="/assets/cars/car3.jpg" alt="Flower">
+                                                    </div>
+                                                    <div class="item carousel-item">
+                                                        <img src="/assets/cars/car4.jpg" alt="Flower">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><!--/col-lg-6 col-lg-offset-3-->
+                                    </div> <!--/row cars-carousel-row-->
+                                </div>
+                                </div>
+                                </div><!--/container-->
+                                </div><!--/row header-focus-->
+                                
+                                <div class="intro-text">
+                                    <div class="col-lg-12 text-center">
+                                        <%= yield %>
+                                    </div>
+                                </div>
+                                </div><!-- /intro-text-->
+                                </div> <!-- /row center-block -->
+                                </div><!--container-fluid-->
+                            </header>
+                            
+                            
+                            <footer>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <span class="copyright">Copyright &copy; Your Website 2014</span>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <ul class="list-inline social-buttons">
+                                                <li><a href="#"><i class="fa fa-twitter"></i></a>
+                                            </li>
+                                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                                        </li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4">
+                                <ul class="list-inline quicklinks">
+                                    <li><a href="#">Privacy Policy</a>
+                                </li>
+                                <li><a href="#">Terms of Use</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+        <div class="container modal-login-form">
+            <div class="row text-center">
+                <div class="modal fade js-modal-login">
+                    <div class="col-md-4 col-md-offset-4">
+                        <form class="form-signin" role="form" action="/login" method="post">
+                            <h2 class="form-signin-heading">LOGIN</h2>
+                            <div class="form-group">
+                                <input type="email" name="user[email]" class="form-control input-lg" placeholder="E-mail address" required autofocus>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="user[password]" class="form-control input-lg" placeholder="Password" required>
+                            </div>
+                            <button class="btn btn-lg btn-primary btn-block" type="submit">LOGIN</button><br>
+                            Need an account? <a class="page-scroll signup-link" href="/register">Sign up</a> now!
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-    </footer>
-
- 
-  <div class="container modal-login-form">
-	  <div class="row text-center">
-	    <div class="modal fade js-modal-login">
-	      <div class="col-md-4 col-md-offset-4">
-	        <form class="form-signin" role="form" action="/login" method="post">
-	            <h2 class="form-signin-heading">LOGIN</h2>
-	            <div class="form-group">
-	                <input type="email" name="user[email]" class="form-control input-lg" placeholder="E-mail address" required autofocus>
-	            </div>
-	            <div class="form-group">
-	                <input type="password" name="user[password]" class="form-control input-lg" placeholder="Password" required>
-	            </div>
-	            <button class="btn btn-lg btn-primary btn-block" type="submit">LOGIN</button><br>
-	            Need an account? <a class="page-scroll signup-link" href="/register">Sign up</a> now!
-	        </form>
-	      </div>
-	     </div> 
-	  </div>
-  </div>
-
- <div class="container modal-signup-form">
-   <div class="row text-center">
-     <div class="modal fade js-modal-signup">
-        <div class="col-sm-4 col-sm-offset-4">
-          <form class="form-signin" role="form"  action="/" method="post">
-            <h2 class="form-signin-heading">SIGN UP</h2>
-            <div class="form-group">
-                <input type="email" name="user[email]" class="form-control input-lg" placeholder="E-mail address" required autofocus>
-            </div>
-            <div class="form-group">
-                <input type="text" name="user[name]" class="form-control input-lg" placeholder="Name" required>
-            </div>
-            <div class="form-group">
-                <input type="password" name="user[password]" class="form-control input-lg" placeholder="Password" required>
-            </div>
-            <div class="form-group">
-                <input type="password" name="user[password_confirmation]" class="form-control input-lg" placeholder="Re-enter Password" required>
-            </div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">REGISTER</button><br>
-            Already have an account? <a class="page-scroll login-link" href="/login">Login</a> now!
-          </form>
-        </div> <!- col-sm-4 -->
-      </div> <!- modal -->
-   </div> <!- row -->
- </div> <!- container --> -->
-
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-
-</body>
+        <div class="container modal-signup-form">
+            <div class="row text-center">
+                <div class="modal fade js-modal-signup">
+                    <div class="col-sm-4 col-sm-offset-4">
+                        <form class="form-signin" role="form"  action="/" method="post">
+                            <h2 class="form-signin-heading">SIGN UP</h2>
+                            <div class="form-group">
+                                <input type="email" name="user[email]" class="form-control input-lg" placeholder="E-mail address" required autofocus>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="user[name]" class="form-control input-lg" placeholder="Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="user[password]" class="form-control input-lg" placeholder="Password" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="user[password_confirmation]" class="form-control input-lg" placeholder="Re-enter Password" required>
+                            </div>
+                            <button class="btn btn-lg btn-primary btn-block" type="submit">REGISTER</button><br>
+                            Already have an account? <a class="page-scroll login-link" href="/login">Login</a> now!
+                        </form>
+                    </div> <!-- col-sm-4 -->
+                </div> <!-- modal -->
+            </div> <!-- row -->
+        </div> <!-- container -->
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    </body>
 </html>
