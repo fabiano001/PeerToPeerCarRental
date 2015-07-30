@@ -14,5 +14,11 @@ heroku create
 4) rename application in the terminal
 heroku rename rent-my-car
 
+5) Update production.rb file under /config/environments/
+config.assets.compile = true
+
 5) Deploy (from the terminal)
 git push heroku master
+
+6) Migrate DB in heroku
+heroku run rake db:migrate

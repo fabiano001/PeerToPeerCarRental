@@ -1,0 +1,71 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Cars</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Make</th>
+      <th>Model</th>
+      <th>Year</th>
+      <th>Type</th>
+      <th>Color</th>
+      <th>Body type</th>
+      <th>Engine type</th>
+      <th>Transmission</th>
+      <th>Audio input</th>
+      <th>Bluetooth</th>
+      <th>Heated seats</th>
+      <th>Sun roof</th>
+      <th>Four wheel drive</th>
+      <th>Rearview camera</th>
+      <th>Gps</th>
+      <th>Air conditioner</th>
+      <th>Electric doors</th>
+      <th>Electric seats</th>
+      <th>Condition</th>
+      <th>Video</th>
+      <th>Description</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cars.each do |car| %>
+      <tr>
+        <td><%= car.make %></td>
+        <td><%= car.model %></td>
+        <td><%= car.year %></td>
+        <td><%= car.type %></td>
+        <td><%= car.color %></td>
+        <td><%= car.body_type %></td>
+        <td><%= car.engine_type %></td>
+        <td><%= car.transmission %></td>
+        <td><%= car.audio_input %></td>
+        <td><%= car.bluetooth %></td>
+        <td><%= car.heated_seats %></td>
+        <td><%= car.sun_roof %></td>
+        <td><%= car.four_wheel_drive %></td>
+        <td><%= car.rearview_camera %></td>
+        <td><%= car.gps %></td>
+        <td><%= car.air_conditioner %></td>
+        <td><%= car.electric_doors %></td>
+        <td><%= car.electric_seats %></td>
+        <td><%= car.condition %></td>
+        <td><%= car.video %></td>
+        <td><%= car.description %></td>
+        <td><%= car.latitude %></td>
+        <td><%= car.longitude %></td>
+        <td><%= link_to 'Show', car %></td>
+        <td><%= link_to 'Edit', edit_car_path(car) %></td>
+        <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Car', new_car_path %>

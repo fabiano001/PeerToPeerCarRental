@@ -1,0 +1,1 @@
+json.extract! @car, :id, :make, :model, :year, :type, :color, :body_type, :engine_type, :transmission, :audio_input, :bluetooth, :heated_seats, :sun_roof, :four_wheel_drive, :rearview_camera, :gps, :air_conditioner, :electric_doors, :electric_seats, :condition, :video, :description, :latitude, :longitude, :created_at, :updated_at

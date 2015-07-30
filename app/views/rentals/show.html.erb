@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @rental.start_date %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @rental.duration %>
+</p>
+
+<p>
+  <strong>Daily price:</strong>
+  <%= @rental.daily_price %>
+</p>
+
+<p>
+  <strong>Total price:</strong>
+  <%= @rental.total_price %>
+</p>
+
+<p>
+  <strong>Payment processed:</strong>
+  <%= @rental.payment_processed %>
+</p>
+
+<%= link_to 'Edit', edit_rental_path(@rental) %> |
+<%= link_to 'Back', rentals_path %>
