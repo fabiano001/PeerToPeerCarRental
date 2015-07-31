@@ -11,6 +11,14 @@ $(window).resize(function() {
 // Handle login click
 $(".login-link").on("click", function(event) {
 	event.preventDefault();
+
+	var redirectType = $(event.target).data("redirect");
+
+	if (!redirectType) {
+		redirectType = "default";
+	}
+
+	$.ajax({ url: "/redirect/" + redirectType, type: "post" });
 	showLoginModal();
 });
 
@@ -45,7 +53,6 @@ function showRegistrationModal(){
 	}
 
 	$('.js-modal-signup').modal();
-	// $('header').height($( window ).height());
 }
 
 function showLoginModal(){
@@ -57,8 +64,7 @@ function showLoginModal(){
 		$('.header-toggle').hide();
 	}
 
-	$('.js-modal-login').modal();
-	// $('header').height($( window ).height());
+	$('.js-modal-login').modal("show");
 }
 
 function showHeaderContents(){
@@ -66,7 +72,7 @@ function showHeaderContents(){
 		$('.header-toggle').hide();
 	}
 	else{
-		$('.header-toggle').show();
+		$('.header-toggle').show("show");
 	}
 }
 

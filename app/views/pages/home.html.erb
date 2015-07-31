@@ -47,11 +47,12 @@
                     </div><!--/col-lg-6 col-lg-offset-3-->
                 </div> <!--/row cars-carousel-row-->
                 <div class="row">
-                     <% if(!current_user) %>
-                        <%= link_to "Rent Now", "#", class: "login-link btn btn-success call-to-action" %>
-                    <% else %>  <!--"<%= new_car_path %>"-->
+                    <% unless (user_signed_in?) %>
+                        <%= link_to "Rent Now", "#", class: "login-link btn btn-success call-to-action", data: { redirect: "rent-now" } %>
+                    <% else %>
                         <%= link_to "Rent Now", car_search_path, class: "btn btn-success call-to-action" %>
                     <% end %>
+
                 </div>
             </div>
             <div class="col-lg-5 col-lg-offset-2 header-toggle">
@@ -102,9 +103,9 @@
                     </div><!--/col-lg-6 col-lg-offset-3-->
                 </div> <!--/row cars-carousel-row-->
                 <div class="row">
-                    <% if(!current_user) %>
-                        <%= link_to "List Your Car", "#", class: "login-link btn btn-success call-to-action" %>
-                    <% else %>  <!--"<%= new_car_path %>"-->
+                    <% unless (user_signed_in?) %>
+                        <%= link_to "List Your Car", "#", class: "login-link btn btn-success call-to-action", data: { redirect: "list-your-car" } %>
+                    <% else %>
                         <%= link_to "List Your Car", new_car_path, class: "btn btn-success call-to-action" %>
                     <% end %>
                 </div>
