@@ -1,11 +1,11 @@
 // Make header the size of screen
 $(document).on('ready', function (event) {
-	$('header').height($( window ).height());
+	// $('header').height($( window ).height());
 });
 
 // Make header the size of screen
 $(window).resize(function() {
-  $('header').height($( window ).height());
+  // $('header').height($( window ).height());
 });
 
 // Handle login click
@@ -45,7 +45,7 @@ function showRegistrationModal(){
 	}
 
 	$('.js-modal-signup').modal();
-	$('header').height($( window ).height());
+	// $('header').height($( window ).height());
 }
 
 function showLoginModal(){
@@ -58,7 +58,7 @@ function showLoginModal(){
 	}
 
 	$('.js-modal-login').modal();
-	$('header').height($( window ).height());
+	// $('header').height($( window ).height());
 }
 
 function showHeaderContents(){

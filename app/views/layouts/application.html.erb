@@ -18,6 +18,7 @@
         <%= csrf_meta_tags %>
     </head>
     <body id="page-top" class="index">
+    <div id="wrapper">
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
@@ -38,7 +39,10 @@
                             <a href="#page-top"></a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#about">How It Works</a>
+                            <a class="page-scroll" href="/  ">Home</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#">How It Works</a>
                         </li>
                         <% if(current_user) %>
                         <li>
@@ -64,154 +68,35 @@
             <div class="container-fluid">
                 <div class="row center-block">
                     <div class="intro-text">
-                        <div class="row intro-lead-in header-toggle"><%= t('welcome_to_rent_my_car') %>!</div>
-                        <div class="row header-focus">
-                            <div class="container">
-                                <div class="col-lg-5 header-toggle">
-                                    <div class="row">
-                                        <label class="header-label">Car Renters</label>
-                                    </div>
-                                    <div class="row renter-msgs-carousel-row">
-                                        <div class="col-lg-12">
-                                            <div id="myCarousel" class="carousel" data-ride="carousel">
-                                                <!-- Wrapper for slides -->
-                                                <div class="carousel-inner" role="listbox">
-                                                    <div class="item active carousel-item">
-                                                        <label class="seller-message">Rent directly from car owners and save!</label>
-                                                    </div>
-                                                    <div class="item carousel-item">
-                                                        <label class="seller-message">Your payment is held in escrow until you get the keys to the car.</label>
-                                                    </div>
-                                                    
-                                                    <div class="item carousel-item">
-                                                        <label class="seller-message">Thousands of cars to choose from to meet your car rental needs.</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div><!--/col-lg-6 col-lg-offset-3-->
-                                    </div> <!--/row renter-msgs-carousel-row-->
-                                    <div class="row cars-carousel-row">
-                                        <div class="col-lg-6 col-lg-offset-3">
-                                            <div id="myCarousel" class="carousel" data-ride="carousel">
-                                                <!-- Wrapper for slides -->
-                                                <div class="carousel-inner" role="listbox">
-                                                    <div class="item active carousel-item">
-                                                        <img src="/assets/cars/car1.jpg" alt="Chania">
-                                                    </div>
-                                                    <div class="item carousel-item">
-                                                        <img src="/assets/cars/car2.jpg" alt="Chania">
-                                                    </div>
-                                                    
-                                                    <div class="item carousel-item">
-                                                        <img src="/assets/cars/car3.jpg" alt="Flower">
-                                                    </div>
-                                                    <div class="item carousel-item">
-                                                        <img src="/assets/cars/car4.jpg" alt="Flower">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div><!--/col-lg-6 col-lg-offset-3-->
-                                    </div> <!--/row cars-carousel-row-->
-                                    <div class="row">
-                                         <% if(!current_user) %>
-                                            <%= link_to "Rent Now", "#", class: "login-link btn btn-success call-to-action" %>
-                                        <% else %>  <!--"<%= new_car_path %>"-->
-                                            <%= link_to "Rent Now", car_search_path, class: "btn btn-success call-to-action" %>
-                                        <% end %>
-                                    </div>
-                                </div>
-                                <div class="col-lg-5 col-lg-offset-2 header-toggle">
-                                    <div>
-                                        <label class="header-label">Car Owners</label>
-                                    </div>
-                                    <div class="row renter-msgs-carousel-row">
-                                        <div class="col-lg-12">
-                                            <div id="myCarousel" class="carousel" data-ride="carousel">
-                                                <!-- Wrapper for slides -->
-                                                <div class="carousel-inner" role="listbox">
-                                                    <div class="item active carousel-item">
-                                                        <label class="seller-message">Make money from your car when it's not in use!</label>
-                                                    </div>
-                                                    <div class="item carousel-item">
-                                                        <label class="seller-message">Easy and safe! We verify the identity of renters and owners.</label>
-                                                    </div>
-                                                    <div class="item carousel-item">
-                                                        <label class="seller-message">We hold the payment and deposit right into your account when the renter takes the car!</label>
-                                                    </div>
-                                                    <div class="item carousel-item">
-                                                        <label class="seller-message">For a limited time, we are only charging a service fee of 5% of the total rental price!</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div><!--/col-lg-6 col-lg-offset-3-->
-                                    </div> <!--/row renter-msgs-carousel-row-->
-                                    <div class="row cars-carousel-row">
-                                        <div class="col-lg-6 col-lg-offset-3">
-                                            <div id="myCarousel" class="carousel" data-ride="carousel">
-                                                <!-- Wrapper for slides -->
-                                                <div class="carousel-inner" role="listbox">
-                                                    <div class="item active carousel-item">
-                                                        <img src="/assets/cars/car1.jpg" alt="Chania">
-                                                    </div>
-                                                    <div class="item carousel-item">
-                                                        <img src="/assets/cars/car2.jpg" alt="Chania">
-                                                    </div>
-                                                    
-                                                    <div class="item carousel-item">
-                                                        <img src="/assets/cars/car3.jpg" alt="Flower">
-                                                    </div>
-                                                    <div class="item carousel-item">
-                                                        <img src="/assets/cars/car4.jpg" alt="Flower">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div><!--/col-lg-6 col-lg-offset-3-->
-                                    </div> <!--/row cars-carousel-row-->
-                                    <div class="row">
-                                        <% if(!current_user) %>
-                                            <%= link_to "List Your Car", "#", class: "login-link btn btn-success call-to-action" %>
-                                        <% else %>  <!--"<%= new_car_path %>"-->
-                                            <%= link_to "List Your Car", new_car_path, class: "btn btn-success call-to-action" %>
-                                        <% end %>
-                                    </div>
-                                </div>
-                                </div>
-                                </div><!--/container-->
-                                </div><!--/row header-focus-->
-                                
-                                <div class="intro-text">
-                                    <div class="col-lg-12 text-center">
-                                        <%= yield %>
-                                    </div>
-                                </div>
-                                </div><!-- /intro-text-->
-                                </div> <!-- /row center-block -->
-                                </div><!--container-fluid-->
-                            </header>
-                            
-                            
-                            <footer>
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <span class="copyright">Copyright &copy; Your Website 2014</span>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <ul class="list-inline social-buttons">
-                                                <li><a href="#"><i class="fa fa-twitter"></i></a>
-                                            </li>
-                                            <li><a href="#"><i class="fa fa-facebook"></i></a>
-                                        </li>
-                                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-md-4">
-                                <ul class="list-inline quicklinks">
-                                    <li><a href="#">Privacy Policy</a>
-                                </li>
-                                <li><a href="#">Terms of Use</a>
-                            </li>
+                        <div class="row header-title">
+                            <% if(!current_user) %>
+                                <div class="row intro-lead-in header-toggle"><%= t('welcome_to_rent_my_car') %>!</div>
+                            <% else %>  <!--"<%= new_car_path %>"-->
+                                <div class="row intro-lead-in header-toggle"><%= t('welcome') %> <%= current_user.name %>!</div>
+                            <% end %>
+                        </div>
+                        <%= yield %>      
+                    </div><!-- /intro-text-->
+                </div> <!-- /row center-block -->
+            </div><!--container-fluid-->
+         </header>                  
+        <footer id="footer-section">
+            <div class="container" id="footer-container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <span class="copyright">Copyright &copy; Your Website 2014</span>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-inline social-buttons">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-inline quicklinks">
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Use</a></li>
                         </ul>
                     </div>
                 </div>
@@ -262,6 +147,7 @@
                 </div> <!-- modal -->
             </div> <!-- row -->
         </div> <!-- container -->
+    </div><!--/wrapper-->
         <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     </body>
 </html>
