@@ -7,4 +7,8 @@ class PagesController < ApplicationController
 	def account
 		render("account")
 	end
+
+	def search
+		render("search")
+	end
 end

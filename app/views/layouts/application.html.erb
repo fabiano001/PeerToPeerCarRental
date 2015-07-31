@@ -38,12 +38,6 @@
                             <a href="#page-top"></a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#services">Car Owners</a>
-                        </li>
-                        <li>
-                            <a class="page-scroll" href="#portfolio">Renters</a>
-                        </li>
-                        <li>
                             <a class="page-scroll" href="#about">How It Works</a>
                         </li>
                         <% if(current_user) %>
@@ -118,6 +112,13 @@
                                             </div>
                                         </div><!--/col-lg-6 col-lg-offset-3-->
                                     </div> <!--/row cars-carousel-row-->
+                                    <div class="row">
+                                         <% if(!current_user) %>
+                                            <%= link_to "Rent Now", "#", class: "login-link btn btn-success call-to-action" %>
+                                        <% else %>  <!--"<%= new_car_path %>"-->
+                                            <%= link_to "Rent Now", car_search_path, class: "btn btn-success call-to-action" %>
+                                        <% end %>
+                                    </div>
                                 </div>
                                 <div class="col-lg-5 col-lg-offset-2 header-toggle">
                                     <div>
@@ -166,6 +167,13 @@
                                             </div>
                                         </div><!--/col-lg-6 col-lg-offset-3-->
                                     </div> <!--/row cars-carousel-row-->
+                                    <div class="row">
+                                        <% if(!current_user) %>
+                                            <%= link_to "List Your Car", "#", class: "login-link btn btn-success call-to-action" %>
+                                        <% else %>  <!--"<%= new_car_path %>"-->
+                                            <%= link_to "List Your Car", new_car_path, class: "btn btn-success call-to-action" %>
+                                        <% end %>
+                                    </div>
                                 </div>
                                 </div>
                                 </div><!--/container-->
@@ -222,8 +230,8 @@
                             <div class="form-group">
                                 <input type="password" name="user[password]" class="form-control input-lg" placeholder="Password" required>
                             </div>
-                            <button class="btn btn-lg btn-primary btn-block" type="submit">LOGIN</button><br>
-                            Need an account? <a class="page-scroll signup-link" href="/register">Sign up</a> now!
+                            <button class="btn btn-lg btn-primary btn-block" type="submit">LOGIN</button><br><span class="login-sm-font">
+                            Need an account? <a class="page-scroll signup-link call-to-action-2" href="#">Sign up</a> now!</span>
                         </form>
                     </div>
                 </div>
@@ -247,8 +255,8 @@
                             <div class="form-group">
                                 <input type="password" name="user[password_confirmation]" class="form-control input-lg" placeholder="Re-enter Password" required>
                             </div>
-                            <button class="btn btn-lg btn-primary btn-block" type="submit">REGISTER</button><br>
-                            Already have an account? <a class="page-scroll login-link" href="/login">Login</a> now!
+                            <button class="btn btn-lg btn-primary btn-block" type="submit">REGISTER</button><br><span class="login-sm-font">
+                            Already have an account? <a class="page-scroll login-link call-to-action-2" href="#">Login</a> now!</span>
                         </form>
                     </div> <!-- col-sm-4 -->
                 </div> <!-- modal -->

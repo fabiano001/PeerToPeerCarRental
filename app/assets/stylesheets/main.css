@@ -8,7 +8,7 @@
 
 .header-focus {
   height: 500px;
-  background-color: rgba(250,250,250,0.4);
+  background-color: rgba(255,255,255,0.4);
   padding: 0;
 }
 
@@ -69,7 +69,25 @@
     padding: 8px;
     /*line-height: 50px;*/
     margin-top: 5%;
+}
 
+.call-to-action,
+.call-to-action:link,
+.call-to-action:visited,
+.call-to-action:hover,
+.call-to-action:active {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+.call-to-action-2,
+.call-to-action-2:link,
+.call-to-action-2:visited,
+.call-to-action-2:hover,
+.call-to-action-2:active {
+	text-decoration: none;
+	color: #FED136;
+	background-color: rgba(0,0,0,0);
 }
 
 #myCarousel {
@@ -78,4 +96,9 @@
 
 .container-fluid{
 	/*border: 4px solid black;*/
+}
+
+.login-sm-font {
+	text-decoration: none;
+	color: #FFFFFF;
 }

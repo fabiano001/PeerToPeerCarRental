@@ -30,6 +30,11 @@ $('.js-modal-signup').on('hide.bs.modal', function () {
 	showHeaderContents();
 });
 
+// Handle call to action click by the user
+$('.call-to-action').on('click', function() {
+	
+});
+
 function showRegistrationModal(){
 	if($('.js-modal-login').is(":visible")){
 		$('.js-modal-login').modal("hide");
