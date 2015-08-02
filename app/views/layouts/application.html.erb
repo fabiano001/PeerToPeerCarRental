@@ -41,7 +41,18 @@
                             <a class="page-scroll" href="/  ">Home</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#">How It Works</a>
+                            <% unless (user_signed_in?) %>
+                                <%= link_to "Rent Now", "#", class: "login-link call-to-action", data: { redirect: "rent-now" } %>
+                            <% else %>
+                                <%= link_to "Rent Now", car_search_path, class: "btn call-to-action" %>
+                            <% end %>
+                        </li>
+                        <li>
+                             <% unless (user_signed_in?) %>
+                                <%= link_to "List Your Car", "#", class: "login-link btn call-to-action", data: { redirect: "list-your-car" } %>
+                            <% else %>
+                                <%= link_to "List Your Car", new_car_path, class: "call-to-action" %>
+                            <% end %>
                         </li>
                         <% if(current_user) %>
                         <li>

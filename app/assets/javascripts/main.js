@@ -1,13 +1,8 @@
 // Make header the size of screen
 $(document).on('ready', function (event) {
 	if(window.location.pathname==='/cars/new'){
-		loadCarMakersDropdown();
+		callEdmundsApi("populateCarMakers");
 	}
-});
-
-// Make header the size of screen
-$(window).resize(function() {
-  // $('header').height($( window ).height());
 });
 
 // Handle login click
@@ -40,13 +35,15 @@ $('.js-modal-signup').on('hide.bs.modal', function () {
 	showHeaderContents();
 });
 
-// Handle call to action click by the user
-$('.call-to-action').on('click', function() {
-	
+// When user selects a car make, populate the car models associated with that make
+$('.form_car-makers').change(function() {
+	// Set car models dropdown to disabled
+	$('.form_car-models').prop('disabled', true);
+	callEdmundsApi("populateCarModels");
 });
 
 // Call edmunds api to get list of car makers
-function loadCarMakersDropdown(){
+function callEdmundsApi(requestType){
 	// grab search query
 	var queryUrl = 'https://api.edmunds.com/api/vehicle/v2/makes?view=basic&fmt=json&api_key=vrmzr6w225qvt46z47gazvuy';
 	console.debug('API Call Url:' + queryUrl);
@@ -56,21 +53,78 @@ function loadCarMakersDropdown(){
         url: queryUrl,
         success: (function(serverResponse){
             console.debug('Server Response: ' + serverResponse);
+            if(requestType==="populateCarMakers"){
+            	loadCarMakersDropown(serverResponse);	
+            }
+            else{
+            	loadCarModelsDropdown(serverResponse);
+            }
             
-            // populate car makers dropdown
-            serverResponse.makes.forEach(function (carMaker, index) {
-
-            	var option = document.createElement("option");
-			    option.value = parseInt(index + 1);
-			    option.text = serverResponse.makes[index].name;
-            	$('.form_car-makers').append(option);
-            });
         }),
         error: (function(serverResponse, errorMsg){
             console.debug('ERROR MESSAGE: ' + errorMsg);
         })
     });
 }
+
+function loadCarMakersDropown(serverResponse){
+
+	var $form_car_makers = $('.form_car-makers');
+
+	// populate car makers dropdown
+    serverResponse.makes.forEach(function (carMaker, index) {
+
+    	var option = document.createElement("option");
+	    option.value = serverResponse.makes[index].name;
+	    option.text = serverResponse.makes[index].name;
+    	$form_car_makers.append(option);
+    });
+
+     // Append "Other" selection
+	var option = document.createElement("option");
+    option.value = "Other";
+    option.text = "Other";
+	$form_car_makers.append(option);
+}
+
+function loadCarModelsDropdown(serverResponse){
+
+	var $form_car_models = $('.form_car-models');
+
+	// empty models list
+	$form_car_models.empty();
+
+	// Append "select" prompt
+	var option = document.createElement("option");
+    option.value = "Select model";
+    option.text = "Select model";
+	$form_car_models.append(option);
+
+	// populate car models dropdown
+    serverResponse.makes.forEach(function (carMaker, index) {
+
+    	if(serverResponse.makes[index].name === $('.form_car-makers').val()){
+    		// Found our make, populate models
+    		serverResponse.makes[index].models.forEach(function (model, i) {
+
+    			var option = document.createElement("option");
+			    option.value = model.name;
+			    option.text = model.name;
+		    	$form_car_models.append(option);
+    		});
+    	}
+    	
+    });
+
+    // Append "Other" selection
+	option = document.createElement("option");
+    option.value = "Other";
+    option.text = "Other";
+	$form_car_models.append(option);
+
+	// Enable dropdown
+ 	$form_car_models.removeAttr('disabled');
+ }
 
 function showRegistrationModal(){
 	if($('.js-modal-login').is(":visible")){

@@ -24,7 +24,7 @@
 				</div>
 
 				<div class="form-group">
-					<%= frm.select(:model, [['Mustang', 1], ['Chevy', 2], ['X3', 3], ['M5', 4], ['Forester', 5], ['Other', 6]], { :prompt => "Select model" }, { :class => "form_control", :disabled => true}) %>
+					<%= frm.select(:model, [], { :prompt => "Select model" }, { :class => "form_control form_car-models", :disabled => true}) %>
 				</div>
 				<div class="form-group">
 					<%= frm.date_select(:year, {:order => [:year], :start_year => Time.now.year, :end_year => 1960, 
@@ -32,7 +32,7 @@
 				</div>
 
 				<div class="form-group">
-					<%= frm.select(:type, [['Car', 1], ['SUV', 2], ['Truck', 3], ['Van', 4], ['Minivan', 5], ['RV', 6], ['Bus', 7], ['Other', 8]], {
+					<%= frm.select(:type, [['Car', 'Car'], ['SUV', 'SUV'], ['Truck', 'Truck'], ['Van', 'Van'], ['Minivan', 'Minivan'], ['RV', 'RV'], ['Bus', 'Bus'], ['Other', 'Other']], {
 						:prompt => "Select type"}, { :class => "form_control"}) %>
 				</div>
 
@@ -47,7 +47,7 @@
 				</div>
 
 				<div class="form-group">
-					<%= frm.select(:color, [['Red', 1], ['White', 2], ['Blue', 3], ['Green', 4], ['Yellow', 5], ['Other', 6]], {
+					<%= frm.select(:color, [['Black', 'Black'], ['Blue', 'Blue'], ['Brown', 'Brown'], ['Gray', 'Gray'], ['Silver', 'Silver'], ['Green', 'Green'], ['Orange', 'Orange'], ['Pink', 'Pink'], ['Purple', 'Purple'], ['Red', 'Red'], ['White', 'White'], ['Yellow', 'Yellow'], ['Fuchsia', 'Fuchsia'], ['Olive', 'Olive'], ['Maroon', 'Maroon'], ['Aqua', 'Aqua'], ['Lime', 'Lime'], ['Teal', 'Teal'], ['Navy', 'Navy']], {
 						:prompt => "Select color"}, { :class => "form_control"}) %>
 				</div>
 
