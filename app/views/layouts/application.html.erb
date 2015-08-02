@@ -18,7 +18,6 @@
         <%= csrf_meta_tags %>
     </head>
     <body id="page-top" class="index">
-    <div id="wrapper">
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
@@ -75,34 +74,17 @@
                                 <div class="row intro-lead-in header-toggle"><%= t('welcome') %> <%= current_user.name %>!</div>
                             <% end %>
                         </div>
-                        <%= yield %>      
+                        <div class="row header-focus">
+                            <div class="container main-content-area">
+                                <div class="row">
+                                    <%= yield %>  
+                                </div>
+                            </div> 
+                        </div>   
                     </div><!-- /intro-text-->
                 </div> <!-- /row center-block -->
             </div><!--container-fluid-->
-         </header>                  
-        <footer id="footer-section">
-            <div class="container" id="footer-container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <span class="copyright">Copyright &copy; Your Website 2014</span>
-                    </div>
-                    <div class="col-md-4">
-                        <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4">
-                        <ul class="list-inline quicklinks">
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms of Use</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        
+         </header>             
         <div class="container modal-login-form">
             <div class="row text-center">
                 <div class="modal fade js-modal-login">
@@ -147,7 +129,28 @@
                 </div> <!-- modal -->
             </div> <!-- row -->
         </div> <!-- container -->
-    </div><!--/wrapper-->
+        <footer id="footer-section">
+            <div class="container" id="footer-container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <span class="copyright">Copyright &copy; Your Website 2014</span>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-inline social-buttons">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-inline quicklinks">
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Use</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
         <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     </body>
 </html>

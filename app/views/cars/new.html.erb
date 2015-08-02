@@ -1,5 +1,155 @@
-<h1>New Car</h1>
+<div class="form-style-5">
+	<fieldset>
+		<div class="row">
+			<div class="col-sm-4 col-sm-offset-4">
+				<%= flash_message %>
 
-<%= render 'form' %>
+				<% if(@errors!=nil) %>
+					<ul>
+						<% @errors.each do |err| %>
+							<li><%= err %></li>
+						<% end %>
+					</ul>
+				<% end %>
 
-<%= link_to 'Back', cars_path %>
+				<%= form_for ([@car]) do |frm|%>
+			</div><!--/col-sm-4 col-sm-offset-4-->
+		</div><!--/row-->
+
+		<div class="row">
+			<div class="col-sm-4">
+
+				<div class="form-group">
+					<%= frm.select(:model, [['Mustang', 1], ['Chevy', 2], ['X3', 3], ['M5', 4], ['Forester', 5]], { :prompt => "Select model" }, { :class => "form_control"}) %>
+				</div>
+				<div class="form-group">
+					<%= frm.select(:make, [['Ford', 1], ['Chevrolet', 2], ['BMW', 3], ['Mercedez', 4], ['Fiat', 5]], {
+						:prompt => "Select make"}, { :class => "form_control form_car-make", :disabled => true }) %>
+				</div>
+				<div class="form-group">
+					<%= frm.date_select(:year, {:order => [:year], :start_year => Time.now.year, :end_year => 1960, 
+						:prompt => {:year => "Select year"}}, {:class => "form_control"}) %>
+				</div>
+
+				<div class="form-group">
+					<%= frm.select(:type, [['Car', 1], ['SUV', 2], ['Truck', 3], ['RV', 4], ['Bus', 5]], {
+						:prompt => "Select type"}, { :class => "form_control"}) %>
+				</div>
+
+				<div class="form-group">
+					<%= frm.select(:color, [['Red', 1], ['White', 2], ['Blue', 3], ['Green', 4], ['Yellow', 5]], {
+						:prompt => "Select color"}, { :class => "form_control"}) %>
+				</div>
+
+				<div class="form-group">
+					<%= frm.select(:body_type, [['Sedan', 1], ['Hatch Back', 2], ['Convertible', 3], ['Other']], {
+						:prompt => "Select body type"}, { :class => "form_control"}) %>
+				</div>
+
+				<div class="form-group">
+					<%= frm.select(:engine_type, [['4 Cylinder', 1], ['6 Cylinder', 2], ['8 Cylinder', 3], ['Other']], {
+						:prompt => "Select engine type"}, { :class => "form_control"}) %>
+				</div>
+
+				<div class="form-group">
+					<%= frm.select(:transmission, [['Automatic', 1], ['Manual', 2], ['Other']], {
+						:prompt => "Select transmission"}, { :class => "form_control"}) %>
+				</div>
+
+				<div class="form-group">
+					<%= frm.select(:condition, [['Excellent', 1], ['Good', 2], ['Fair'], ['Poor']], {
+						:prompt => "Select condition"}, { :class => "form_control"}) %>
+				</div>
+				<div class="form-group">
+					<%= frm.label(:price, :class => "form_car-price-label") %>
+					<% prices = (1..100).map{|price| %>
+						<% "$" + price.to_s + ".00" %>
+					<% } %>
+					<%= frm.select(:price, prices.reverse, {
+						:prompt => "Set daily rental price"}, { :class => "form_control"}) %>
+				</div>
+			</div><!--/col-sm-4-->
+			<div class="col-sm-8">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="form-group">
+							<%= frm.check_box(:audio_input, :class => "form_control") %>
+							<%= frm.label(:audio_input) %>
+						</div>
+
+						<div class="form-group">
+							<%= frm.check_box(:bluetooth, :class => "form_control") %>
+							<%= frm.label(:bluetooth) %>
+						</div>
+
+						<div class="form-group">
+							<%= frm.check_box(:heated_seats, :class => "form_control") %>
+							<%= frm.label(:heated_seats) %>
+						</div>
+
+						<div class="form-group">
+							<%= frm.check_box(:sun_roof, :class => "form_control") %>
+							<%= frm.label(:sun_roof) %>
+						</div>
+
+						<div class="form-group">
+							<%= frm.check_box(:rearview_camera, :class => "form_control") %>
+							<%= frm.label(:rearview_camera) %>
+						</div>
+					</div><!--</col-sm-6-->
+					<div class="col-sm-6">
+						<div class="form-group">
+							<%= frm.check_box(:four_wheel_drive, :class => "form_control") %>
+							<%= frm.label(:four_wheel_drive) %>
+						</div>
+						<div class="form-group">
+							<%= frm.check_box(:air_conditioner, :class => "form_control") %>
+							<%= frm.label(:air_conditioner) %>
+						</div>
+
+						<div class="form-group">
+							<%= frm.check_box(:electric_doors, :class => "form_control") %>
+							<%= frm.label(:electric_doors) %>
+						</div>
+
+						<div class="form-group">
+							<%= frm.check_box(:electric_seats, :class => "form_control") %>
+							<%= frm.label(:electric_seats) %>
+						</div>
+						<div class="form-group">
+							<%= frm.check_box(:gps, :class => "form_control") %>
+							<%= frm.label(:gps) %>
+						</div>
+					</div><!--close/col-sm-6-->
+
+
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="form-group">
+								<%= frm.label(:address, :class => "form_car-address-label") %>
+								<%= frm.text_field(:address, :class => "form_car-address-line", :style => "margin-bottom: 1%", :placeholder => "Adress *") %>
+								<%= frm.text_field(:city, :class => "form_car-address-line", :style => "margin-bottom: 1%", :placeholder => "City *") %>
+								<%= frm.text_field(:state, :class => "form_car-address-line", :placeholder => "State *") %>
+							</div>
+						</div><!--/col-sm-12"-->
+					</div><!--/row"-->
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="form-group">
+								<%= frm.label(:description, :class => "form_car-description-label") %>
+								<%= frm.text_area(:description, size: "30x6", :class => "form_control form_car-description", :placeholder => "Tell us all about your car *") %>
+							</div>
+						</div><!--/col-sm-12"-->
+					</div><!--/row"-->
+				</div><!--/row-->
+			</div><!--/col-sm-8-->
+		</div><!--/row-->
+		<div class="row">
+			<div class="col-sm-4 col-sm-offset-4">
+				<button class="btn btn-success call-to-action" type="submit">List Your Car</button>
+			</div>
+		</div><!--/row-->
+		<%end%>
+		<%= link_to 'Home', home_path %>
+	</fieldset>
+</div>					
