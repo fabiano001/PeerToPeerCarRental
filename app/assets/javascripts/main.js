@@ -1,6 +1,8 @@
 // Make header the size of screen
 $(document).on('ready', function (event) {
-	// $('header').height($( window ).height());
+	if(window.location.pathname==='/cars/new'){
+		loadCarMakersDropdown();
+	}
 });
 
 // Make header the size of screen
@@ -42,6 +44,33 @@ $('.js-modal-signup').on('hide.bs.modal', function () {
 $('.call-to-action').on('click', function() {
 	
 });
+
+// Call edmunds api to get list of car makers
+function loadCarMakersDropdown(){
+	// grab search query
+	var queryUrl = 'https://api.edmunds.com/api/vehicle/v2/makes?view=basic&fmt=json&api_key=vrmzr6w225qvt46z47gazvuy';
+	console.debug('API Call Url:' + queryUrl);
+
+	// do ajax call to get car makers
+	$.ajax({
+        url: queryUrl,
+        success: (function(serverResponse){
+            console.debug('Server Response: ' + serverResponse);
+            
+            // populate car makers dropdown
+            serverResponse.makes.forEach(function (carMaker, index) {
+
+            	var option = document.createElement("option");
+			    option.value = parseInt(index + 1);
+			    option.text = serverResponse.makes[index].name;
+            	$('.form_car-makers').append(option);
+            });
+        }),
+        error: (function(serverResponse, errorMsg){
+            console.debug('ERROR MESSAGE: ' + errorMsg);
+        })
+    });
+}
 
 function showRegistrationModal(){
 	if($('.js-modal-login').is(":visible")){
