@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150801180012) do
+ActiveRecord::Schema.define(version: 20150802063237) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 20150801180012) do
     t.boolean  "bluetooth"
     t.boolean  "heated_seats"
     t.boolean  "sun_roof"
-    t.boolean  "four_wheel_drive"
     t.boolean  "rearview_camera"
     t.boolean  "gps"
     t.boolean  "air_conditioner"
@@ -49,13 +48,17 @@ ActiveRecord::Schema.define(version: 20150801180012) do
     t.string   "description"
     t.integer  "latitude"
     t.integer  "longitude"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.integer  "user_id"
     t.integer  "price"
     t.string   "address"
     t.string   "city"
     t.string   "state"
+    t.string   "driven_wheels"
+    t.string   "vehichle_size"
+    t.string   "fuel_type"
+    t.boolean  "antilock_brake_system"
   end
 
   add_index "cars", ["user_id"], name: "index_cars_on_user_id", using: :btree

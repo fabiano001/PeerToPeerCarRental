@@ -45,7 +45,7 @@
     color:#8a97a0;
     -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
     box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
-    margin-bottom: 3%;  
+    margin-bottom: 1%;  
 }
 .form-style-5 select{
     -webkit-appearance: menulist-button;
@@ -89,6 +89,14 @@
 .form-style-5 .form_car-address-label,
 .form-style-5 .form_car-price-label {
 	width: 80%
+}
+
+.form-style-5 .form_car-checkbox-cols {
+    margin-bottom: 3%;
+}
+
+.form-style-5 .form_car-description-label {
+    margin-top: 3%;
 }
 
 .form-style-5 input[type="text"]:focus,

@@ -1,5 +1,6 @@
 class AddColumnsToUsers < ActiveRecord::Migration
   def change
+    add_column :users, :name, :string
     add_column :users, :billing_address, :string
     add_column :users, :billing_city, :string
     add_column :users, :billing_state, :string
