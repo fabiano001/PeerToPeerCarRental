@@ -13,7 +13,6 @@ class CreateCars < ActiveRecord::Migration
       t.boolean :bluetooth
       t.boolean :heated_seats
       t.boolean :sun_roof
-      t.boolean :four_wheel_drive
       t.boolean :rearview_camera
       t.boolean :gps
       t.boolean :air_conditioner
@@ -24,6 +23,14 @@ class CreateCars < ActiveRecord::Migration
       t.string :description
       t.integer :latitude
       t.integer :longitude
+      t.integer :price
+      t.string :address
+      t.string :city
+      t.string :state
+      t.string :driven_wheels
+      t.string :vehichle_size
+      t.string :fuel_type
+      t.boolean :antilock_brake_system
 
       t.timestamps null: false
     end

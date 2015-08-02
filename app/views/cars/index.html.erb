@@ -17,7 +17,6 @@
       <th>Bluetooth</th>
       <th>Heated seats</th>
       <th>Sun roof</th>
-      <th>Four wheel drive</th>
       <th>Rearview camera</th>
       <th>Gps</th>
       <th>Air conditioner</th>
@@ -28,6 +27,14 @@
       <th>Description</th>
       <th>Latitude</th>
       <th>Longitude</th>
+      <th>Price</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Driven wheels</th>
+      <th>Vehichle size</th>
+      <th>Fuel type</th>
+      <th>Antilock brake system</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -47,7 +54,6 @@
         <td><%= car.bluetooth %></td>
         <td><%= car.heated_seats %></td>
         <td><%= car.sun_roof %></td>
-        <td><%= car.four_wheel_drive %></td>
         <td><%= car.rearview_camera %></td>
         <td><%= car.gps %></td>
         <td><%= car.air_conditioner %></td>
@@ -58,6 +64,14 @@
         <td><%= car.description %></td>
         <td><%= car.latitude %></td>
         <td><%= car.longitude %></td>
+        <td><%= car.price %></td>
+        <td><%= car.address %></td>
+        <td><%= car.city %></td>
+        <td><%= car.state %></td>
+        <td><%= car.driven_wheels %></td>
+        <td><%= car.vehichle_size %></td>
+        <td><%= car.fuel_type %></td>
+        <td><%= car.antilock_brake_system %></td>
         <td><%= link_to 'Show', car %></td>
         <td><%= link_to 'Edit', edit_car_path(car) %></td>
         <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -60,10 +60,6 @@
     <%= f.check_box :sun_roof %>
   </div>
   <div class="field">
-    <%= f.label :four_wheel_drive %><br>
-    <%= f.check_box :four_wheel_drive %>
-  </div>
-  <div class="field">
     <%= f.label :rearview_camera %><br>
     <%= f.check_box :rearview_camera %>
   </div>
@@ -102,6 +98,38 @@
   <div class="field">
     <%= f.label :longitude %><br>
     <%= f.number_field :longitude %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.number_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br>
+    <%= f.text_field :state %>
+  </div>
+  <div class="field">
+    <%= f.label :driven_wheels %><br>
+    <%= f.text_field :driven_wheels %>
+  </div>
+  <div class="field">
+    <%= f.label :vehichle_size %><br>
+    <%= f.text_field :vehichle_size %>
+  </div>
+  <div class="field">
+    <%= f.label :fuel_type %><br>
+    <%= f.text_field :fuel_type %>
+  </div>
+  <div class="field">
+    <%= f.label :antilock_brake_system %><br>
+    <%= f.check_box :antilock_brake_system %>
   </div>
   <div class="actions">
     <%= f.submit %>

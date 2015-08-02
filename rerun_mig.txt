@@ -1,0 +1,106 @@
+rails destroy migration delete_column_from_cars (DONE)
+
+  remove_column :cars, :four_wheel_drive, :boolean (DONE)
+
+rails destroy migration add_columns_to_cars (DONE)
+no need to add this migration (DONE)
+
+rails destroy migration add_reference_to_reviews2 (DONE)
+  add_reference :reviews, :rental, index: true, foreign_key: true (DONE)
+
+rails destroy migration add_reference_rentals (DONE)
+    add_reference :rentals, :renter, references: :users (DONE)
+    add_reference :rentals, :owner, references: :users (DONE)
+
+rails destroy scaffold rental (DONE)
+
+rails destroy migration add_reference_to_messages2 (DONE)
+  add_reference :messages, :chat, index: true, foreign_key: true (DONE)
+
+rails destroy migration add_reference_to_chats (DONE)
+  add_reference :chats, :renter, references: :users (DONE)
+    add_reference :chats, :owner, references: :users (DONE)
+
+rails destroy scaffold chat (DONE)
+
+rails destroy migration add_reference_to_messages (DONE)
+    add_reference :messages, :from, references: :users (DONE)
+    add_reference :messages, :to, references: :users (DONE)
+
+rails destroy scaffold message (DONE)
+
+rails destroy migration add_reference_to_reviews (DONE)
+    add_reference :reviews, :reviewer, references: :users (DONE)
+    add_reference :reviews, :review_subject, references: :users (DONE)
+
+rails destroy scaffold review (DONE)
+
+rails destroy migration add_reference_to_car_pictures (DONE)
+  add_reference :car_pictures, :car, index: true, foreign_key: true (DONE)
+
+rails destroy scaffold car_picture (DONE)
+
+rails destroy migration add_columns_to_users (DONE)
+    add_column :users, :name, :string (DONE)
+    add_column :users, :billing_address, :string (DONE)
+    add_column :users, :billing_city, :string (DONE)
+    add_column :users, :billing_state, :string (DONE)
+    add_column :users, :billing_country, :string (DONE)
+    add_column :users, :drivers_license, :string (DONE)
+    add_column :users, :drivers_license_state, :string (DONE)
+    add_column :users, :drivers_licence_country, :string (DONE)
+    add_column :users, :photo, :string (DONE)
+    add_column :users, :bio, :string (DONE)
+
+rails destroy migration add_reference_to_cars (DONE)
+  add_reference :cars, :user, index: true, foreign_key: true (DONE)
+
+rails destroy scaffold cars (DONE)
+
+******************************** SCAFFOLDS ********************************
+rails generate scaffold rental start_date:datetime duration:integer daily_price:integer total_price:integer payment_processed:boolean
+
+rails generate scaffold chat
+
+rails generate scaffold message content:string
+
+rails generate scaffold review rating:integer comment:string
+
+rails generate scaffold car_picture path:string
+
+rails generate scaffold car make:string model:string year:integer type:string color:string body_type:string engine_type:string transmission:string audio_input:boolean bluetooth:boolean heated_seats:boolean sun_roof:boolean rearview_camera:boolean gps:boolean air_conditioner:boolean electric_doors:boolean electric_seats:boolean condition:string video:string description:string latitude:integer longitude:integer price:integer address:string city:string state:string driven_wheels:string vehichle_size:string fuel_type:string antilock_brake_system:boolean
+
+************************** REFERENCES ********************************
+
+rails generate migration add_reference_rentals (DONE)
+  
+  add_reference :rentals, :renter, references: :users
+  add_reference :rentals, :owner, references: :users
+  
+
+rails generate migration add_reference_to_chats (DONE)
+
+  add_reference :chats, :renter, references: :users
+    add_reference :chats, :owner, references: :users
+
+rails generate migration add_reference_to_messages (DONE)
+
+  add_reference :messages, :chat, index: true, foreign_key: true
+  add_reference :messages, :from, references: :users
+  add_reference :messages, :to, references: :users
+
+rails generate migration add_reference_to_reviews (DONE)
+
+  add_reference :reviews, :reviewer, references: :users
+  add_reference :reviews, :review_subject, references: :users
+  add_reference :reviews, :rental, index: true, foreign_key: true
+
+rails generate migration add_reference_to_car_pictures (DONE)
+
+  add_reference :car_pictures, :car, index: true, foreign_key: true
+
+rails generate migration add_columns_to_users name:string billing_address:string billing_city:string billing_state:string billing_country:string drivers_license:string drivers_license_state:string drivers_licence_country:string photo:string bio:string (DONE)
+ 
+rails generate migration add_reference_to_cars (DONE)
+
+   add_reference :cars, :user, index: true, foreign_key: true

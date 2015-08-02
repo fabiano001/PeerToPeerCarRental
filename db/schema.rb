@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150802063237) do
+ActiveRecord::Schema.define(version: 20150802224420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,9 +48,6 @@ ActiveRecord::Schema.define(version: 20150802063237) do
     t.string   "description"
     t.integer  "latitude"
     t.integer  "longitude"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.integer  "user_id"
     t.integer  "price"
     t.string   "address"
     t.string   "city"
@@ -59,6 +56,9 @@ ActiveRecord::Schema.define(version: 20150802063237) do
     t.string   "vehichle_size"
     t.string   "fuel_type"
     t.boolean  "antilock_brake_system"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.integer  "user_id"
   end
 
   add_index "cars", ["user_id"], name: "index_cars_on_user_id", using: :btree
@@ -74,9 +74,9 @@ ActiveRecord::Schema.define(version: 20150802063237) do
     t.string   "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "chat_id"
     t.integer  "from_id"
     t.integer  "to_id"
-    t.integer  "chat_id"
   end
 
   add_index "messages", ["chat_id"], name: "index_messages_on_chat_id", using: :btree
