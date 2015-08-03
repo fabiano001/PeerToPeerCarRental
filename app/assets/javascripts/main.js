@@ -1,7 +1,12 @@
 // Make header the size of screen
 $(document).on('ready', function (event) {
-	if(window.location.pathname==='/cars/new'){
+	
+	if(window.location.pathname==='/cars/new' || window.location.pathname==='/cars'){
 		callEdmundsApi("populateCarMakers");
+
+		if($('#newCarErrorModal').attr('error') === 'true'){
+			$('#newCarErrorModal').modal('show');
+		}
 	}
 });
 

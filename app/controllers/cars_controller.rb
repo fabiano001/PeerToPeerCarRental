@@ -23,17 +23,42 @@ class CarsController < ApplicationController
 
   # POST /cars
   # POST /cars.json
+  # def create
+  #   @car = Car.new(car_params)
+
+  #   respond_to do |format|
+  #     if @car.save
+  #       format.html { redirect_to @car, notice: 'Car was successfully created.' }
+  #       format.json { render :show, status: :created, location: @car }
+  #     else
+  #       # flash[:alert] = "Please address the following errors"
+  #       # @errors = @car.errors.full_messages
+  #       # render("new")
+  #       errorMessage = 'Please address the following errors:\n'
+  #       @car.errors.full_messages.each{|error|
+  #         errorMessage += errorMessage + error + '\n'
+  #       }
+
+  #       format.html { render :new, notice: errorMessage }
+  #       format.json { render json: @car.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
+
   def create
+
     @car = Car.new(car_params)
 
-    respond_to do |format|
-      if @car.save
-        format.html { redirect_to @car, notice: 'Car was successfully created.' }
-        format.json { render :show, status: :created, location: @car }
-      else
-        format.html { render :new }
-        format.json { render json: @car.errors, status: :unprocessable_entity }
-      end
+    if(@car.save)
+      flash[:notice] = "Created new concert succesfully"
+      redirect_to(@car)
+    else
+      puts("errors occurred creating new car")
+      flash[:alert] = "Please address the following errors"
+      @errors = @car.errors.full_messages
+      @car = Car.new
+      render("new")
+      # redirect_to(new_car_path)
     end
   end
 
