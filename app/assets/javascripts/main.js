@@ -7,6 +7,42 @@ $(document).on('ready', function (event) {
 		if($('#newCarErrorModal').attr('error') === 'true'){
 			$('#newCarErrorModal').modal('show');
 		}
+
+		// Set Defaults for Demo
+		$('.form_car-years').val("2007");
+		$('.form_car-types').val("Car");
+		$('.form_car-body-types').val("Convertible");
+		$('.form_car-sizes').val("Midsize");
+		$('.form_car-types').val("Car");
+		$('.form_car-colors').val("Blue");
+		$('.form_car-transmissions').val("Manual");
+		$('.form_car-engine-types').val("8 Cylinder");
+		$('.form_car-driven-wheels').val("Front-wheel-drive");
+		$('.form_car-fuel-types').val("Gas");
+		$('.form_car-conditions').val("Excellent");
+		$('.form_car-prices').val("$30.00");
+
+		$('.form_car-address-line').val("7201 Ranch Road 2222");
+		$('.form_car-city-line').val("Austin");
+		$('.form_car-state-line').val("TX");
+
+		$('.form_car-audio-input').prop('checked', true);
+		$('.form_car-abs').prop('checked', true);
+		$('.form_car-ac').prop('checked', true);
+		$('.form_car-gps').prop('checked', true);
+		$('.form_car-electric-doors').prop('checked', true);
+		$('.form_car-electric-seats').prop('checked', true);
+
+
+		var default_desc = 'This Mustang convertible is looking amazing. Rent my car and drive in style. This is '
+			+ 'the perfect weather to drive around town in this sporty looking car. I use this car on occasion and ' 
+			+ 'enjoy driving it every time. \n\nIts loaded with power everything and leather, and the convertible top '
+			+ 'opens with a push of a button. This car is the perfect size. I am right next door to the NJ transit '
+			+ 'Train stop in Hackensack on Essex st. \n\nFrom NYC penn station, thats only a short 20-30 min ride. I will '
+			+ 'meet anyone there at the Hackensack NJ Bus Station or Train Station if it makes it easier. Or i can offer '
+			+ 'delivery. Just contact me about that.';
+
+		$('.form_car-description').val(default_desc);
 	}
 });
 

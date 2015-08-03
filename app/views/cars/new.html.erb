@@ -44,52 +44,55 @@
 						<%= frm.select(:model, [], { :prompt => "Select model" }, { :class => "form_control form_car-models", :disabled => true}) %>
 					</div>
 					<div class="form-group">
-						<%= frm.date_select(:year, {:order => [:year], :start_year => Time.now.year, :end_year => 1960, 
-							:prompt => {:year => "Select year"}}, {:class => "form_control"}) %>
+						<% years = (1960..2015).map{|year| %>
+							<% year.to_s %>
+						<% } %>
+						<%= frm.select(:year, years.reverse, {
+							:prompt => "Select year"}, { :class => "form_control form_car-years"}) %>
 					</div>
 
 					<div class="form-group">
 						<%= frm.select(:type, [['Car', 'Car'], ['SUV', 'SUV'], ['Truck', 'Truck'], ['Van', 'Van'], ['Minivan', 'Minivan'], ['RV', 'RV'], ['Bus', 'Bus'], ['Other', 'Other']], {
-							:prompt => "Select type"}, { :class => "form_control"}) %>
+							:prompt => "Select type"}, { :class => "form_control form_car-types"}) %>
 					</div>
 
 					<div class="form-group">
-						<%= frm.select(:body_type, [['2dr Sedan', 1], ['4dr Sedan', 2], ['2dr SUV', 3], ['4dr SUV', 4], ['2dr Hatchback', 5], ['4dr Hatchback', 6], ['Convertible', 7], ['Coup', 8], ['Cargo Minivan', 9], ['Cargo Van', 10], ['Convertible SUV', 11], ['Crew Cab Pickup', 12], ['Extended Cab Pickup', 13], ['Passenger Minivan', 14], ['Passenger Van', 15], ['Regular Cab Pickup', 16], ['Wagon', 17], ['Other', 18]], {
-							:prompt => "Select body type"}, { :class => "form_control"}) %>
+						<%= frm.select(:body_type, [['2dr Sedan', 1], ['4dr Sedan', 2], ['2dr SUV', 3], ['4dr SUV', 4], ['2dr Hatchback', 5], ['4dr Hatchback', 6], ['Convertible', 'Convertible'], ['Coup', 8], ['Cargo Minivan', 9], ['Cargo Van', 10], ['Convertible SUV', 11], ['Crew Cab Pickup', 12], ['Extended Cab Pickup', 13], ['Passenger Minivan', 14], ['Passenger Van', 15], ['Regular Cab Pickup', 16], ['Wagon', 17], ['Other', 18]], {
+							:prompt => "Select body type"}, { :class => "form_control form_car-body-types"}) %>
 					</div>
 
 					<div class="form-group">
-						<%= frm.select(:vehichle_size, [['Compact', 1], ['Midsize', 2], ['Large', 3], ['Other', 4]], {
-							:prompt => "Select vehichle size"}, { :class => "form_control"}) %>
+						<%= frm.select(:vehichle_size, [['Compact', 1], ['Midsize', 'Midsize'], ['Large', 3], ['Other', 4]], {
+							:prompt => "Select vehichle size"}, { :class => "form_control form_car-sizes"}) %>
 					</div>
 
 					<div class="form-group">
 						<%= frm.select(:color, [['Black', 'Black'], ['Blue', 'Blue'], ['Brown', 'Brown'], ['Gray', 'Gray'], ['Silver', 'Silver'], ['Green', 'Green'], ['Orange', 'Orange'], ['Pink', 'Pink'], ['Purple', 'Purple'], ['Red', 'Red'], ['White', 'White'], ['Yellow', 'Yellow'], ['Fuchsia', 'Fuchsia'], ['Olive', 'Olive'], ['Maroon', 'Maroon'], ['Aqua', 'Aqua'], ['Lime', 'Lime'], ['Teal', 'Teal'], ['Navy', 'Navy']], {
-							:prompt => "Select color"}, { :class => "form_control"}) %>
+							:prompt => "Select color"}, { :class => "form_control form_car-colors"}) %>
 					</div>
 
 					<div class="form-group">
-						<%= frm.select(:transmission, [['Automatic', 1], ['Manual', 2], ['Other', 3]], {
-							:prompt => "Select transmission"}, { :class => "form_control"}) %>
+						<%= frm.select(:transmission, [['Automatic', 1], ['Manual', 'Manual'], ['Other', 3]], {
+							:prompt => "Select transmission"}, { :class => "form_control form_car-transmissions"}) %>
 					</div>
 
 					<div class="form-group">
-						<%= frm.select(:engine_type, [['4 Cylinder', 1], ['6 Cylinder', 2], ['8 Cylinder', 3], ['Other', 4]], {
-							:prompt => "Select engine type"}, { :class => "form_control"}) %>
+						<%= frm.select(:engine_type, [['4 Cylinder', 1], ['6 Cylinder', 2], ['8 Cylinder', '8 Cylinder'], ['Other', 4]], {
+							:prompt => "Select engine type"}, { :class => "form_control form_car-engine-types"}) %>
 					</div>
 
 					<div class="form-group">
-						<%= frm.select(:driven_wheels, [['Front-wheel-drive', 1], ['Rear-wheel-drive', 2], ['Four-wheel-drive', 3], ['Other', 4]], {
-							:prompt => "Select driven wheels"}, { :class => "form_control"}) %>
+						<%= frm.select(:driven_wheels, [['Front-wheel-drive', 'Front-wheel-drive'], ['Rear-wheel-drive', 'Rear-wheel-drive'], ['Four-wheel-drive', 3], ['Other', 4]], {
+							:prompt => "Select driven wheels"}, { :class => "form_control form_car-driven-wheels"}) %>
 					</div>
 					<div class="form-group">
-						<%= frm.select(:fuel_type, [['Gas', 1], ['Electric', 2], ['Hybrid', 3], ['Diesel', 4], ['Natural-gas-cng', 5], ['Flex-fuel-ffv', 6], ['Other', 7]], {
-							:prompt => "Select fuel type"}, { :class => "form_control"}) %>
+						<%= frm.select(:fuel_type, [['Gas', 'Gas'], ['Electric', 2], ['Hybrid', 3], ['Diesel', 4], ['Natural-gas-cng', 5], ['Flex-fuel-ffv', 6], ['Other', 7]], {
+							:prompt => "Select fuel type"}, { :class => "form_control form_car-fuel-types"}) %>
 					</div>
 
 					<div class="form-group">
-						<%= frm.select(:condition, [['Excellent', 1], ['Good', 2], ['Fair', 3], ['Poor', 4]], {
-							:prompt => "Select condition"}, { :class => "form_control"}) %>
+						<%= frm.select(:condition, [['Excellent', 'Excellent'], ['Good', 2], ['Fair', 3], ['Poor', 4]], {
+							:prompt => "Select condition"}, { :class => "form_control form_car-conditions"}) %>
 					</div>
 
 					<div class="form-group">
@@ -97,7 +100,7 @@
 							<% "$" + price.to_s + ".00" %>
 						<% } %>
 						<%= frm.select(:price, prices.reverse, {
-							:prompt => "Set daily rental price"}, { :class => "form_control"}) %>
+							:prompt => "Set daily rental price"}, { :class => "form_control form_car-prices"}) %>
 					</div>
 
 					<div class="form-group" class="custom-file-upload">	
@@ -109,51 +112,51 @@
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group">
-								<%= frm.check_box(:audio_input, :class => "form_control") %>
+								<%= frm.check_box(:audio_input, :class => "form_control form_car-audio-input") %>
 								<%= frm.label(:audio_input) %>
 							</div>
 
 							<div class="form-group">
-								<%= frm.check_box(:bluetooth, :class => "form_control") %>
+								<%= frm.check_box(:bluetooth, :class => "form_control form_car-bluetooth") %>
 								<%= frm.label(:bluetooth) %>
 							</div>
 
 							<div class="form-group">
-								<%= frm.check_box(:heated_seats, :class => "form_control") %>
+								<%= frm.check_box(:heated_seats, :class => "form_control form_car-heated-seats") %>
 								<%= frm.label(:heated_seats) %>
 							</div>
 
 							<div class="form-group">
-								<%= frm.check_box(:sun_roof, :class => "form_control") %>
+								<%= frm.check_box(:sun_roof, :class => "form_control form_car-sun-roof") %>
 								<%= frm.label(:sun_roof) %>
 							</div>
 
 							<div class="form-group">
-								<%= frm.check_box(:rearview_camera, :class => "form_control") %>
+								<%= frm.check_box(:rearview_camera, :class => "form_control form_car-rearview-camera") %>
 								<%= frm.label(:rearview_camera) %>
 							</div>
 						</div><!--</col-sm-6-->
 						<div class="col-sm-6 form_car-checkbox-cols">
 							<div class="form-group">
-								<%= frm.check_box(:antilock_brake_system, :class => "form_control") %>
+								<%= frm.check_box(:antilock_brake_system, :class => "form_control form_car-abs") %>
 								<%= frm.label(:antilock_brake_system, "ABS") %>
 							</div>
 							<div class="form-group">
-								<%= frm.check_box(:air_conditioner, :class => "form_control") %>
+								<%= frm.check_box(:air_conditioner, :class => "form_control form_car-ac") %>
 								<%= frm.label(:air_conditioner) %>
 							</div>
 
 							<div class="form-group">
-								<%= frm.check_box(:electric_doors, :class => "form_control") %>
+								<%= frm.check_box(:electric_doors, :class => "form_control form_car-electric-doors") %>
 								<%= frm.label(:electric_doors) %>
 							</div>
 
 							<div class="form-group">
-								<%= frm.check_box(:electric_seats, :class => "form_control") %>
+								<%= frm.check_box(:electric_seats, :class => "form_control form_car-electric-seats") %>
 								<%= frm.label(:electric_seats) %>
 							</div>
 							<div class="form-group">
-								<%= frm.check_box(:gps, :class => "form_control") %>
+								<%= frm.check_box(:gps, :class => "form_control form_car-gps") %>
 								<%= frm.label(:gps, "GPS") %>
 							</div>
 						</div><!--close/col-sm-6-->
