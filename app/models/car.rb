@@ -14,4 +14,5 @@ class Car < ActiveRecord::Base
 	validates :driven_wheels, presence: true
 	validates :vehichle_size, presence: true
 	validates :fuel_type, presence: true
+	validates :user_id, presence: true
 end

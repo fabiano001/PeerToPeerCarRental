@@ -1,5 +1,6 @@
 class CarsController < ApplicationController
   before_action :set_car, only: [:show, :edit, :update, :destroy]
+  before_action(:admin_only, :only => [:index, :destroy])
 
   # GET /cars
   # GET /cars.json
@@ -10,6 +11,7 @@ class CarsController < ApplicationController
   # GET /cars/1
   # GET /cars/1.json
   def show
+    @pictures = Picture.where("car_id = ?", params[:id])
   end
 
   # GET /cars/new
@@ -21,33 +23,10 @@ class CarsController < ApplicationController
   def edit
   end
 
-  # POST /cars
-  # POST /cars.json
-  # def create
-  #   @car = Car.new(car_params)
-
-  #   respond_to do |format|
-  #     if @car.save
-  #       format.html { redirect_to @car, notice: 'Car was successfully created.' }
-  #       format.json { render :show, status: :created, location: @car }
-  #     else
-  #       # flash[:alert] = "Please address the following errors"
-  #       # @errors = @car.errors.full_messages
-  #       # render("new")
-  #       errorMessage = 'Please address the following errors:\n'
-  #       @car.errors.full_messages.each{|error|
-  #         errorMessage += errorMessage + error + '\n'
-  #       }
-
-  #       format.html { render :new, notice: errorMessage }
-  #       format.json { render json: @car.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
-
   def create
 
     @car = Car.new(car_params)
+    @car.user_id = current_user.id;
 
     if(@car.save)
       flash[:notice] = "Created new concert succesfully"

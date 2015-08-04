@@ -29,4 +29,11 @@ class ApplicationController < ActionController::Base
   	return permitted
   end
 
+  def admin_only
+    unless current_user().present? && current_user.role == "admin"
+      flash[:message] = "Access denied. You must be an admin to access the page requested."
+      redirect_to("/")
+    end
+  end
+
 end

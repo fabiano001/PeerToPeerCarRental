@@ -1,154 +1,225 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Make:</strong>
-  <%= @car.make %>
-</p>
+    <div class="row price-per-day">
+        <div class="col-sm-8 col-sm-offset-2">
+            <% if(current_user.id==@car.user_id) %>
+                 <a href="#">
+                    <div class="pt-package-3">
+                        <div class="pt-header" style="background-color:'+thirdPackageColor+';">
+                            <h2> RENT NOW </h2>
+                          <h3>
+                            <span class="pt-currency">$</span>
+                            <span class="pt-amount"><%= @car.price %></span>
+                            <span class="pt-terms">/day</span>
+                          </h3>
+                        </div>       
+                    </div><!--/col-sm-8  col-sm-offset-2-->
+                </a>
+            <% else %> 
+                <a href="<%= rent_car_path(@car) %>">       
+                    <div class="pt-package-3">
+                        <div class="pt-header" style="background-color:'+thirdPackageColor+';">
+                            <h2> RENT NOW </h2>
+                          <h3>
+                            <span class="pt-currency">$</span>
+                            <span class="pt-amount"><%= @car.price %></span>
+                            <span class="pt-terms">/day</span>
+                          </h3>
+                        </div>       
+                    </div><!--/col-sm-8  col-sm-offset-2-->
+                </a>
+            <% end %>
+        </div><!--col-sm-8 col-sm-offset-2-->
+    </div><!--row price-per-day-->
+    <div class="row car-pics">
+        <div class="col-sm-8 col-sm-offset-2">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <% (0...@pictures.count).each do |index| %>
+                        <% if(index==0) %>
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <% else %>
+                            <li data-target="#myCarousel" data-slide-to="<%= index %>"></li>
+                        <% end %>
+                    <% end %>
+                </ol>
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner carousel-car-img" role="listbox">
+                    <% @pictures.each_with_index do |picture, index| %>
+                        <% if(index==0) %>
+                            <div class="item active">
+                                <img src="<%= picture.path %>">
+                            </div>
+                        <% else %>
+                            <div class="item">
+                                <img src="<%= picture.path %>">
+                            </div>
+                        <% end %>
+                    <% end %>
+                </div>
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div><!--/col-sm-8 col-sm-offset-1-->
+    </div><!--row-->
+    <div class="row car-description">
+        <div class="col-sm-8 col-sm-offset-1">
+            <p>
+              <strong>Description:</strong>
+              <%= @car.description %>
+            </p>
+        </div><!--col-sm-4 col-sm-offset-4-->
+    </div><!--/row-->
+<div class="car-details">
+    <div class="row">
+        <div class="col-sm-4">
 
-<p>
-  <strong>Model:</strong>
-  <%= @car.model %>
-</p>
+            <p>
+              <strong>Make:</strong>
+              <%= @car.make %>
+            </p>
 
-<p>
-  <strong>Year:</strong>
-  <%= @car.year %>
-</p>
+            <p>
+              <strong>Model:</strong>
+              <%= @car.model %>
+            </p>
 
-<p>
-  <strong>Type:</strong>
-  <%= @car.type %>
-</p>
+            <p>
+              <strong>Year:</strong>
+              <%= @car.year %>
+            </p>
 
-<p>
-  <strong>Color:</strong>
-  <%= @car.color %>
-</p>
+            <p>
+              <strong>Type:</strong>
+              <%= @car.type %>
+            </p>
 
-<p>
-  <strong>Body type:</strong>
-  <%= @car.body_type %>
-</p>
+            <p>
+              <strong>Color:</strong>
+              <%= @car.color %>
+            </p>
 
-<p>
-  <strong>Engine type:</strong>
-  <%= @car.engine_type %>
-</p>
+            <p>
+              <strong>Body type:</strong>
+              <%= @car.body_type %>
+            </p>
 
-<p>
-  <strong>Transmission:</strong>
-  <%= @car.transmission %>
-</p>
+            <p>
+              <strong>Engine type:</strong>
+              <%= @car.engine_type %>
+            </p>
 
-<p>
-  <strong>Audio input:</strong>
-  <%= @car.audio_input %>
-</p>
+        </div><!--col-sm-4-->
+        <div class="col-sm-4">
+            <p>
+              <strong>Transmission:</strong>
+              <%= @car.transmission %>
+            </p>
 
-<p>
-  <strong>Bluetooth:</strong>
-  <%= @car.bluetooth %>
-</p>
+            <p>
+              <strong>Audio input:</strong>
+              <%= @car.audio_input %>
+            </p>
 
-<p>
-  <strong>Heated seats:</strong>
-  <%= @car.heated_seats %>
-</p>
+            <p>
+              <strong>Bluetooth:</strong>
+              <%= @car.bluetooth %>
+            </p>
 
-<p>
-  <strong>Sun roof:</strong>
-  <%= @car.sun_roof %>
-</p>
+            <p>
+              <strong>Heated seats:</strong>
+              <%= @car.heated_seats %>
+            </p>
 
-<p>
-  <strong>Rearview camera:</strong>
-  <%= @car.rearview_camera %>
-</p>
+            <p>
+              <strong>Sun roof:</strong>
+              <%= @car.sun_roof %>
+            </p>
 
-<p>
-  <strong>Gps:</strong>
-  <%= @car.gps %>
-</p>
+            <p>
+              <strong>Rearview camera:</strong>
+              <%= @car.rearview_camera %>
+            </p>
 
-<p>
-  <strong>Air conditioner:</strong>
-  <%= @car.air_conditioner %>
-</p>
+            <p>
+              <strong>Gps:</strong>
+              <%= @car.gps %>
+            </p>
 
-<p>
-  <strong>Electric doors:</strong>
-  <%= @car.electric_doors %>
-</p>
+            <p>
+              <strong>Air conditioner:</strong>
+              <%= @car.air_conditioner %>
+            </p>
 
-<p>
-  <strong>Electric seats:</strong>
-  <%= @car.electric_seats %>
-</p>
+            <p>
+              <strong>Electric doors:</strong>
+              <%= @car.electric_doors %>
+            </p>
 
-<p>
-  <strong>Condition:</strong>
-  <%= @car.condition %>
-</p>
+            <p>
+              <strong>Electric seats:</strong>
+              <%= @car.electric_seats %>
+            </p>
 
-<p>
-  <strong>Video:</strong>
-  <%= @car.video %>
-</p>
+            <p>
+              <strong>Condition:</strong>
+              <%= @car.condition %>
+            </p>
+        </div><!--col-sm-4-->
+        <div class="col-sm-4">
+            <p>
+              <strong>Price:</strong>
+              <%= @car.price %>
+            </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @car.description %>
-</p>
+            <p>
+              <strong>Address:</strong>
+              <%= @car.address %>
+            </p>
 
-<p>
-  <strong>Latitude:</strong>
-  <%= @car.latitude %>
-</p>
+            <p>
+              <strong>City:</strong>
+              <%= @car.city %>
+            </p>
 
-<p>
-  <strong>Longitude:</strong>
-  <%= @car.longitude %>
-</p>
+            <p>
+              <strong>State:</strong>
+              <%= @car.state %>
+            </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @car.price %>
-</p>
+            <p>
+              <strong>Driven wheels:</strong>
+              <%= @car.driven_wheels %>
+            </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @car.address %>
-</p>
+            <p>
+              <strong>Vehichle size:</strong>
+              <%= @car.vehichle_size %>
+            </p>
 
-<p>
-  <strong>City:</strong>
-  <%= @car.city %>
-</p>
+            <p>
+              <strong>Fuel type:</strong>
+              <%= @car.fuel_type %>
+            </p>
 
-<p>
-  <strong>State:</strong>
-  <%= @car.state %>
-</p>
-
-<p>
-  <strong>Driven wheels:</strong>
-  <%= @car.driven_wheels %>
-</p>
-
-<p>
-  <strong>Vehichle size:</strong>
-  <%= @car.vehichle_size %>
-</p>
-
-<p>
-  <strong>Fuel type:</strong>
-  <%= @car.fuel_type %>
-</p>
-
-<p>
-  <strong>Antilock brake system:</strong>
-  <%= @car.antilock_brake_system %>
-</p>
-
-<%= link_to 'Edit', edit_car_path(@car) %> |
-<%= link_to 'Back', cars_path %>
+            <p>
+              <strong>Antilock brake system:</strong>
+              <%= @car.antilock_brake_system %>
+            </p>
+        </div><!--/col-sm-4-->
+    </div><!--/row-->
+</div><!--/car-details-->
+    <% if(current_user.id==@car.user_id) %>
+        <%= link_to 'Edit', edit_car_path(@car), class: "btn btn-success call-to-action" %>
+    <% else %>
+        <%= link_to 'Rent This Car Now', rent_car_path(@car), class: "btn btn-success call-to-action" %>
+    <% end %>
+</div><!--/show-car-page>-->

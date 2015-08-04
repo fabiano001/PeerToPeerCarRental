@@ -1,7 +1,8 @@
 // Place all the styles related to the cars controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.form-style-5{
+.form-style-5,
+.show-car-page {
     padding: 10px 20px;
     background: #f4f7f8;
     margin: 10px auto;
@@ -17,6 +18,11 @@
 .form-style-5 legend {
     font-size: 1.4em;
     margin-bottom: 10px;
+}
+
+.car-description,
+.car-show-page-carousel {
+    margin-bottom: 3%;
 }
 
 .form-style-5 input[type="text"],
@@ -108,12 +114,24 @@
 	width: 80%
 }
 
-.form-style-5 .form_car-checkbox-cols {
+.form-style-5 .form_car-checkbox-cols, {
     margin-bottom: 3%;
 }
 
 .form-style-5 .form_car-description-label {
     margin-top: 3%;
+}
+
+.car-description,
+.car-details {
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 6px;
+    padding: 1%;
+    margin-top: 3%;
+}
+
+.car-details {
+    margin-bottom: 3%;
 }
 
 .form-style-5 input[type="text"]:focus,

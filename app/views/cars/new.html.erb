@@ -95,13 +95,10 @@
 							:prompt => "Select condition"}, { :class => "form_control form_car-conditions"}) %>
 					</div>
 
-					<div class="form-group">
-						<% prices = (1..100).map{|price| %>
-							<% "$" + price.to_s + ".00" %>
-						<% } %>
-						<%= frm.select(:price, prices.reverse, {
-							:prompt => "Set daily rental price"}, { :class => "form_control form_car-prices"}) %>
-					</div>
+					
+		<div class="form-group">			
+			<%= frm.select :price, options_for_select((1..100).map{ |price| ["$" + price.to_s + ".00", price] }.reverse) %>
+		</div>
 
 					<div class="form-group" class="custom-file-upload">	
 						<%= frm.file_field(:images, :multiple => true) %>

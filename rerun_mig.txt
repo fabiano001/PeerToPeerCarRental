@@ -66,7 +66,7 @@ rails generate scaffold message content:string
 
 rails generate scaffold review rating:integer comment:string
 
-rails generate scaffold car_picture path:string
+rails generate scaffold picture path:string
 
 rails generate scaffold car make:string model:string year:integer type:string color:string body_type:string engine_type:string transmission:string audio_input:boolean bluetooth:boolean heated_seats:boolean sun_roof:boolean rearview_camera:boolean gps:boolean air_conditioner:boolean electric_doors:boolean electric_seats:boolean condition:string video:string description:string latitude:integer longitude:integer price:integer address:string city:string state:string driven_wheels:string vehichle_size:string fuel_type:string antilock_brake_system:boolean
 
@@ -95,9 +95,9 @@ rails generate migration add_reference_to_reviews (DONE)
   add_reference :reviews, :review_subject, references: :users
   add_reference :reviews, :rental, index: true, foreign_key: true
 
-rails generate migration add_reference_to_car_pictures (DONE)
+rails generate migration add_reference_to_pictures (DONE)
 
-  add_reference :car_pictures, :car, index: true, foreign_key: true
+  add_reference :pictures, :car, index: true, foreign_key: true
 
 rails generate migration add_columns_to_users name:string billing_address:string billing_city:string billing_state:string billing_country:string drivers_license:string drivers_license_state:string drivers_licence_country:string photo:string bio:string (DONE)
  

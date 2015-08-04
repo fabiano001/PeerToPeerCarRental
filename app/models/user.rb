@@ -1,10 +1,12 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+	# Include default devise modules. Others available are:
+	# :confirmable, :lockable, :timeoutable and :omniauthable
+	after_initialize :set_default_role, :if => :new_record?
+	
+	devise :database_authenticatable, :registerable,
+	 :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :cars
+	has_many :cars
 
 	has_many(:reviews, :foreign_key => :reviewer_id)
 	has_many(:feedback, :foreign_key => :review_subject_id, :class_name => "Review")
@@ -17,4 +19,10 @@ class User < ActiveRecord::Base
 
 	has_many(:renter_rentals, :foreign_key => :renter_id, :class_name => "User")
 	has_many(:owner_rentals, :foreign_key => :owner_id, :class_name => "User")
+
+	def set_default_role
+		unless self.role
+			self.role = :user
+		end
+	end
 end

@@ -11,19 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150802224420) do
+ActiveRecord::Schema.define(version: 20150804051825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "car_pictures", force: :cascade do |t|
-    t.string   "path"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "car_id"
-  end
-
-  add_index "car_pictures", ["car_id"], name: "index_car_pictures_on_car_id", using: :btree
 
   create_table "cars", force: :cascade do |t|
     t.string   "make"
@@ -81,6 +72,15 @@ ActiveRecord::Schema.define(version: 20150802224420) do
 
   add_index "messages", ["chat_id"], name: "index_messages_on_chat_id", using: :btree
 
+  create_table "pictures", force: :cascade do |t|
+    t.string   "path"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "car_id"
+  end
+
+  add_index "pictures", ["car_id"], name: "index_pictures_on_car_id", using: :btree
+
   create_table "rentals", force: :cascade do |t|
     t.datetime "start_date"
     t.integer  "duration"
@@ -128,13 +128,14 @@ ActiveRecord::Schema.define(version: 20150802224420) do
     t.string   "drivers_licence_country"
     t.string   "photo"
     t.string   "bio"
+    t.string   "role"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "car_pictures", "cars"
   add_foreign_key "cars", "users"
   add_foreign_key "messages", "chats"
+  add_foreign_key "pictures", "cars"
   add_foreign_key "reviews", "rentals"
 end

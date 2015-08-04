@@ -69,18 +69,22 @@ body {
 	height:150px;
 }
 
-.carousel-inner img {
+.carousel-img img {
 	height:200px;
 	width: 200px;
 	border-radius: 6px;
-	/*position: relative;*/
+}
+
+.carousel-car-img img {
+	height:372px;
+	width: 800px;
+	border-radius: 6px;
 }
 
 .carousel-item {
 	left:0;
 	right: 0;
 	margin: auto;
-	/*position: absolute;*/
 }
 
 .last-row {
@@ -136,6 +140,8 @@ body {
 	color: #FFFFFF;
 }
 
-.form_car-description {
+.form_car-description,
+.new-pic-btn,
+.new-pic-text {
 	color: #000;
 }

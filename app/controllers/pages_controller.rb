@@ -1,6 +1,11 @@
 class PagesController < ApplicationController
 
 	def home
+		@cars = Car.all
+		@pictures = @cars.map do |car|
+			Picture.where("car_id = ?", car).first
+		end
+		
 		render("home")
 	end
 
@@ -11,6 +16,10 @@ class PagesController < ApplicationController
 	def search
 		render("search")
 	end
+
+	def rent_confirmation
+	    render("confirmation")
+	  end
 
 	def redirect
 		session[:login_redirect] = params[:type]

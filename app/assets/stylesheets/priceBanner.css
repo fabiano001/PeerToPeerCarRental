@@ -1,0 +1,73 @@
+
+
+.pt-package-3 .pt-header,
+.pt-button-3 {
+  background-color: #1da78b;
+}
+
+
+/*Header Styles*/
+
+.pt-header {
+  color: #fff;
+  text-align: center;
+}
+
+.pt-header h2 {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 16px 0 0 0;
+}
+
+.pt-header h3 {
+  font-size: 64px;
+  font-weight: 200;
+  padding: 0px 0 5px 0;
+}
+
+.pt-currency {
+  font-size: 34px;
+  font-weight: 100;
+  color: #FFF;
+}
+
+.pt-amount {
+  margin: 0 -14px 0 -12px;
+  color: #FFF;
+}
+
+.pt-terms {
+  text-transform: lowercase;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/*Feature Lists*/
+/*Buttons*/
+/*Responsive Styles*/
+
+@media only screen and (max-width: 960px) {
+  .container {
+    width: 540px;
+    margin: 100px auto;
+  }
+  .pt-column {
+    width: 240px;
+    margin: 0 10px 20px 10px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .container {
+    width: 90%;
+    margin: 40px auto;
+  }
+  .pt-column {
+    width: 320px;
+    margin-bottom: 40px;
+  }
+}
+/* http://medialoot.com/preview/frame/pricing-table.html
+http://medialoot.com/preview/pricing-table/pricing-table.css */

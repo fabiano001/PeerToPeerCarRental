@@ -1,0 +1,22 @@
+<%= form_for(@picture, url: {action: "create"}) do |f| %>
+  <% if @picture.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@picture.errors.count, "error") %> prohibited this picture from being saved:</h2>
+
+      <ul>
+      <% @picture.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field new-pic-text">
+    <%= f.label :path %><br>
+    <%= f.text_field :path %>
+  </div>
+  <div class="actions new-pic-text">
+    <%= f.submit %>
+  </div>
+<% end %>
+
