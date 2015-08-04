@@ -44,6 +44,40 @@
   color: rgba(255, 255, 255, 0.6);
 }
 
+.pt-package-3-sm {
+  margin-top: -20px;
+}
+
+/*small for home page*/
+.pt-package-3-sm .pt-header-sm,
+.pt-button-3-sm {
+  background-color: #1da78b;
+  margin-bottom: -11px;
+}
+
+.pt-header-sm h3 {
+  font-size: 25px;
+  font-weight: 200;
+  padding: 0px 0 5px 0;
+}
+
+.pt-currency-sm {
+  font-size: 10px;
+  font-weight: 100;
+  color: #FFF;
+}
+
+.pt-amount-sm {
+  margin: 0 -3px 0 -12px;
+  color: #FFF;
+}
+
+.pt-terms-sm {
+  text-transform: lowercase;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 1);
+}
+
 /*Feature Lists*/
 /*Buttons*/
 /*Responsive Styles*/

@@ -27,15 +27,35 @@
                 <div class="row cars-carousel-row">
                     <div class="col-lg-6 col-lg-offset-3">
                         <div id="myCarousel" class="carousel" data-ride="carousel">
+                            <% prices = [] %>
+                            <% @cars.each do |car|%>
+                                <% prices.push(car.price) %>
+                            <% end %>
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner carousel-car-img" role="listbox">
                                 <% @pictures.each_with_index do |picture, index| %>
                                     <% if(index==0) %>
                                         <div class="item active carousel-item">
+                                            <div class="pt-package-3-sm">
+                                                <div class="pt-header-sm" style="background-color:'+thirdPackageColor+';">
+                                                    <h3>
+                                                        <span class="pt-amount-sm">$<%= prices[index] %></span>
+                                                        <span class="pt-terms-sm">/day</span>
+                                                    </h3>
+                                                </div>       
+                                            </div><!--/pt-package-3-->
                                             <img src="<%= picture.path %>">
                                         </div>
                                     <% else %>
                                         <div class="item carousel-item">
+                                            <div class="pt-package-3-sm">
+                                                <div class="pt-header-sm" style="background-color:'+thirdPackageColor+';">
+                                                    <h3>
+                                                        <span class="pt-amount-sm">$<%= prices[index] %></span>
+                                                        <span class="pt-terms-sm">/day</span>
+                                                    </h3>
+                                                </div>       
+                                            </div><!--/pt-package-3-->
                                             <img src="<%= picture.path %>">
                                         </div>
                                     <% end %>

@@ -1,11 +1,10 @@
 class PagesController < ApplicationController
 
 	def home
-		@cars = Car.all
+		@cars = Car.all.order(id: :asc)
 		@pictures = @cars.map do |car|
 			Picture.where("car_id = ?", car).first
 		end
-		
 		render("home")
 	end
 
