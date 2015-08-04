@@ -22,6 +22,7 @@ class PagesController < ApplicationController
 
 	def redirect
 		session[:login_redirect] = params[:type]
+		session[:car_id] = params[:car_id]
 		render :json => { :message => "redirect saved" }
 	end
 end

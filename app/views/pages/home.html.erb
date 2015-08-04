@@ -29,36 +29,24 @@
                         <div id="myCarousel" class="carousel" data-ride="carousel">
                             <% prices = [] %>
                             <% @cars.each do |car|%>
-                                <% prices.push(car.price) %>
+                                <% prices.push(:id => car.id, :price => car.price) %>
                             <% end %>
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner carousel-car-img" role="listbox">
                                 <% @pictures.each_with_index do |picture, index| %>
-                                    <% if(index==0) %>
-                                        <div class="item active carousel-item">
+                                    <div class="item <%= 'active' if index == 0 %> carousel-item">
+                                        <a href='/cars/<%= prices[index][:id].to_s %>' class="<%= 'login-link' unless current_user %>" data-redirect="show-featured-car">
                                             <div class="pt-package-3-sm">
                                                 <div class="pt-header-sm" style="background-color:'+thirdPackageColor+';">
                                                     <h3>
-                                                        <span class="pt-amount-sm">$<%= prices[index] %></span>
+                                                        <span class="pt-amount-sm">$<%= prices[index][:price] %></span>
                                                         <span class="pt-terms-sm">/day</span>
                                                     </h3>
                                                 </div>       
                                             </div><!--/pt-package-3-->
-                                            <img src="<%= picture.path %>">
-                                        </div>
-                                    <% else %>
-                                        <div class="item carousel-item">
-                                            <div class="pt-package-3-sm">
-                                                <div class="pt-header-sm" style="background-color:'+thirdPackageColor+';">
-                                                    <h3>
-                                                        <span class="pt-amount-sm">$<%= prices[index] %></span>
-                                                        <span class="pt-terms-sm">/day</span>
-                                                    </h3>
-                                                </div>       
-                                            </div><!--/pt-package-3-->
-                                            <img src="<%= picture.path %>">
-                                        </div>
-                                    <% end %>
+                                            <img class="<%= 'login-link' unless current_user %>" src="<%= picture.path %>" data-redirect="show-featured-car">
+                                        </a>
+                                    </div>
                                 <% end %>
                             </div>
                         </div>
@@ -121,7 +109,7 @@
                 </div> <!--/row cars-carousel-row-->
                 <div class="row">
                     <% unless (user_signed_in?) %>
-                        <%= link_to "List Your Car", "#", class: "login-link btn btn-success call-to-action", data: { redirect: "list-your-car" } %>
+                        <%= link_to "List Your Car", "#", class: "login-link btn btn-success call-to-action", data: { redirect: "list-your-car" } %> 
                     <% else %>
                         <%= link_to "List Your Car", new_car_path, class: "btn btn-success call-to-action" %>
                     <% end %>

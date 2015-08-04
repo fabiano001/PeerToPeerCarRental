@@ -97,7 +97,7 @@
 
 					
 		<div class="form-group">			
-			<%= frm.select :price, options_for_select((1..100).map{ |price| ["$" + price.to_s + ".00", price] }.reverse) %>
+			<%= frm.select :price, options_for_select((1..200).map{ |price| ["$" + price.to_s + ".00", price] }.reverse) %>
 		</div>
 
 					<div class="form-group" class="custom-file-upload">	

@@ -8,10 +8,14 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
+    logger.info("session[:login_redirect]: " + session[:login_redirect])
     if (session[:login_redirect] == 'list-your-car')
       new_car_path
     elsif (session[:login_redirect] == 'rent-now')
       car_search_path
+    elsif (session[:login_redirect] == 'show-featured-car')
+      car_id = session[:car_id] ? session[:car_id] : 5
+      car_path(car_id)
     else
       home_path
     end

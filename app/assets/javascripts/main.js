@@ -51,12 +51,20 @@ $(".login-link").on("click", function(event) {
 	event.preventDefault();
 
 	var redirectType = $(event.target).data("redirect");
+	console.log($(event.target), redirectType);
+
+	var carId = $(event.target).data("carid");
 
 	if (!redirectType) {
 		redirectType = "default";
 	}
 
-	$.ajax({ url: "/redirect/" + redirectType, type: "post" });
+	var url = "/redirect/" + redirectType;
+	if (carId) {
+		url = url + '?car_id=' + carId;
+	}
+
+	$.ajax({ url: url, type: "post" });
 	showLoginModal();
 });
 
