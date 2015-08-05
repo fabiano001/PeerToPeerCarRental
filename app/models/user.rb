@@ -20,6 +20,8 @@ class User < ActiveRecord::Base
 	has_many(:renter_rentals, :foreign_key => :renter_id, :class_name => "User")
 	has_many(:owner_rentals, :foreign_key => :owner_id, :class_name => "User")
 
+	has_one :cache
+
 	def set_default_role
 		unless self.role
 			self.role = :user

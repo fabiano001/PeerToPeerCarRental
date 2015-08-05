@@ -1,1 +1,109 @@
-<h1>Searching... Please Wait!</h1>
+<div class="row car-search-controls">
+	<div class="container">
+		<div class='col-sm-3'>
+			<div class="form-group">
+				<div>
+					<input type='text' class="form-control" placeholder="Enter city or airport"/>
+				</div>
+			</div>
+		</div>
+		<div class='col-sm-3'>
+			<div class="form-group">
+				<div class='input-group date' id='datetimepicker6'>
+					<input type='text' class="form-control" placeholder="Pickup"/>
+					<span class="input-group-addon">
+						<span class="glyphicon glyphicon-calendar"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class='col-sm-3'>
+			<div class="form-group">
+				<div class='input-group date' id='datetimepicker7'>
+					<input type='text' class="form-control" placeholder="Return"/>
+					<span class="input-group-addon">
+						<span class="glyphicon glyphicon-calendar"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class='col-sm-3'>
+			<div class="form-group">
+				<div>
+					<button action="/search" type="post" class='btn btn-success car-search-btn <% "nodisplay" unless @cache==nil %>'>Search</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row car-search-filter-controls form-style-5" style="display: none;">
+	<div class="container">
+		<div class='col-sm-3'>
+			<div class="form-group">
+				<div>
+					<select class="form_control form_car-sizes" name="car[vehichle_size]" id="car_vehichle_size">
+						<option value="">Select make</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class='col-sm-3'>
+			<div class="form-group">
+				<div>
+					<select class="form_control form_car-sizes" disabled="disabled" name="car[vehichle_size]" id="car_vehichle_size">
+						<option value="">Select model</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class='col-sm-3'>
+			<div class="form-group">
+				<div>
+					<select class="form_control form_car-types" name="car[type]" id="car_type">
+						<option value="">Select type</option>
+						<option value="Car">Car</option>
+						<option value="SUV">SUV</option>
+						<option value="Truck">Truck</option>
+						<option value="Van">Van</option>
+						<option value="Minivan">Minivan</option>
+						<option value="RV">RV</option>
+						<option value="Bus">Bus</option>
+						<option value="Other">Other</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class='col-sm-3'>
+			<div class="form-group">
+				<div>
+					<select class="form_control form_car-body-types" name="car[body_type]" id="car_body_type">
+						<option value="">Select body type</option>
+						<option value="1">2dr Sedan</option>
+						<option value="2">4dr Sedan</option>
+						<option value="3">2dr SUV</option>
+						<option value="4">4dr SUV</option>
+						<option value="5">2dr Hatchback</option>
+						<option value="6">4dr Hatchback</option>
+						<option value="Convertible">Convertible</option>
+						<option value="8">Coup</option>
+						<option value="9">Cargo Minivan</option>
+						<option value="10">Cargo Van</option>
+						<option value="11">Convertible SUV</option>
+						<option value="12">Crew Cab Pickup</option>
+						<option value="13">Extended Cab Pickup</option>
+						<option value="14">Passenger Minivan</option>
+						<option value="15">Passenger Van</option>
+						<option value="16">Regular Cab Pickup</option>
+						<option value="17">Wagon</option>
+						<option value="18">Other</option>
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row search-results">
+	<% if(@cache) %>
+		<%= @cache.search_results %>
+	<% end %>
+</div>

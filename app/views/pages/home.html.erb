@@ -27,24 +27,20 @@
                 <div class="row cars-carousel-row">
                     <div class="col-lg-6 col-lg-offset-3">
                         <div id="myCarousel" class="carousel" data-ride="carousel">
-                            <% prices = [] %>
-                            <% @cars.each do |car|%>
-                                <% prices.push(:id => car.id, :price => car.price) %>
-                            <% end %>
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner carousel-car-img" role="listbox">
-                                <% @pictures.each_with_index do |picture, index| %>
+                                <% @cars.each_with_index do |car, index| %>
                                     <div class="item <%= 'active' if index == 0 %> carousel-item">
-                                        <a href='/cars/<%= prices[index][:id].to_s %>' class="<%= 'login-link' unless current_user %>" data-redirect="show-featured-car">
+                                        <a href='/cars/<%= car.id %>' class="<%= 'login-link' unless current_user %>" data-redirect="show-featured-car">
                                             <div class="pt-package-3-sm">
                                                 <div class="pt-header-sm" style="background-color:'+thirdPackageColor+';">
                                                     <h3>
-                                                        <span class="pt-amount-sm">$<%= prices[index][:price] %></span>
+                                                        <span class="pt-amount-sm">$<%= car.price %></span>
                                                         <span class="pt-terms-sm">/day</span>
                                                     </h3>
                                                 </div>       
                                             </div><!--/pt-package-3-->
-                                            <img class="<%= 'login-link' unless current_user %>" src="<%= picture.path %>" data-redirect="show-featured-car">
+                                            <img class="<%= 'login-link' unless current_user %>" src="<%= car.pictures.first.path %>" data-redirect="show-featured-car">
                                         </a>
                                     </div>
                                 <% end %>
@@ -91,17 +87,7 @@
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner carousel-img" role="listbox">
                                 <div class="item active carousel-item">
-                                    <img src="/assets/cars/car1.jpg" alt="Chania">
-                                </div>
-                                <div class="item carousel-item">
-                                    <img src="/assets/cars/car2.jpg" alt="Chania">
-                                </div>
-                                
-                                <div class="item carousel-item">
-                                    <img src="/assets/cars/car3.jpg" alt="Flower">
-                                </div>
-                                <div class="item carousel-item">
-                                    <img src="/assets/cars/car4.jpg" alt="Flower">
+                                    <img src="/assets/Money-300x200.jpg" alt="Chania">
                                 </div>
                             </div>
                         </div>
