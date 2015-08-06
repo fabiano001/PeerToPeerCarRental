@@ -154,3 +154,11 @@ body {
 	margin-bottom: -10px;
 	z-index: 99;
 }
+
+.show-car-page-banner {
+  font-size: 25px;
+  font-weight: 200;
+  padding: 0px 0 5px 0;
+  color: #fff;
+  background-color: #666;
+}
