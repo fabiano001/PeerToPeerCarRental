@@ -1,0 +1,3 @@
+How to setup amazon S3 to work with carrierwave and heroku
+
+http://blog.thefirehoseproject.com/posts/switching-carrierwave-to-use-s3-with-heroku-and-localhost/
