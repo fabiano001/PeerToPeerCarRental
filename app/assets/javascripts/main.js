@@ -1,8 +1,9 @@
 // Make header the size of screen
 $(document).on('ready', function (event) {
-	
+
+	callEdmundsApi("populateCarMakers");
+
 	if(window.location.pathname==='/cars/new' || window.location.pathname==='/cars'){
-		callEdmundsApi("populateCarMakers");
 
 		if($('#newCarErrorModal').attr('error') === 'true'){
 			$('#newCarErrorModal').modal('show');
@@ -88,6 +89,39 @@ $('.form_car-makers').change(function() {
 	// Set car models dropdown to disabled
 	$('.form_car-models').prop('disabled', true);
 	callEdmundsApi("populateCarModels");
+});
+
+// **************** search filters ********** //
+// When user selects a car type, filter out accordinly
+$('.form_car-types-filter').change(function() {
+	var typeFilter = $('.form_car-types-filter').val();
+	window.location.href = "/cars/?type=" + typeFilter;
+});
+
+// When user selects a car body type, filter out accordinly
+$('.form_car-body-types-filter').change(function() {
+	var bodyTypeFilter = $('.form_car-types-filter').val();
+	window.location.href = "/cars/?bodytype=" + bodyTypeFilter;
+});
+
+// When user selects a car model, filter out accordinly
+$('.form_car-models').change(function() {
+	var modelFilter = $('.form_car-models').val();
+	window.location.href = "/cars/?model=" + modelFilter;
+});
+
+// When user selects a car make, filter out accordinly
+$('.form_car-makers').change(function() {
+	var makeFilter = $('.form_car-makers').val();
+	window.location.href = "/cars/?make=" + makeFilter;
+});
+
+// ****************************************** //
+
+// When user selects a car type, filter out accordinly
+$('.form_car-body-types-filter').change(function() {
+	var bodyTypeFilter = $('.form_car-types-filter').val();
+	window.location.href = "/cars/?bodytype=" + bodyTypeFilter;
 });
 
 // Call edmunds api to get list of car makers

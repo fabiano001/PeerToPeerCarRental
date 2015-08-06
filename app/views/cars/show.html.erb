@@ -217,7 +217,7 @@
         </div><!--/col-sm-4-->
     </div><!--/row-->
 </div><!--/car-details-->
-    <%= link_to 'Go Back', car_search_path, class: "btn btn-success call-to-action" %>
+    <%= link_to 'Go Back', '', class: "btn btn-success call-to-action carview-goback-btn" %>
     <% if(current_user.id==@car.user_id) %>
         <%= link_to 'Edit', edit_car_path(@car), class: "btn btn-success call-to-action" %>
     <% else %>

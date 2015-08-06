@@ -10,15 +10,6 @@ class PagesController < ApplicationController
 	end
 
 	def search
-		@cache = nil
-
-		# if(session[:back_click])
-		# 	@cache = Cache.find_by(user_id:  current_user.id)
-		# else
-		# 	@cache = nil
-		# end
-
-		render("search")
 	end
 
 	def search_results_api

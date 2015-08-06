@@ -1,70 +1,90 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Cars</h1>
-
-<div class="container-fluid">
-<div class="row table-row">
-  <table>
-    <thead>
-      <tr>
-        <th>Car ID</th>
-        <th>User ID</th>
-        <th>Make</th>
-        <th>Model</th>
-        <th>Year</th>
-        <th>Type</th>
-        <th>Color</th>
-        <th>Body type</th>
-        <th>Engine type</th>
-        <th>Transmission</th>
-        <th>Audio input</th>
-        <th>Bluetooth</th>
-        <th>Heated seats</th>
-        <th>Sun roof</th>
-        <th>Rearview camera</th>
-        <th>Gps</th>
-        <th>Air conditioner</th>
-        <th>Electric doors</th>
-        <th>Electric seats</th>
-        <th>Price</th>
-        <th>Fuel type</th>
-        <th>Antilock brake system</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @cars.each do |car| %>
-        <tr>
-          <td><%= car.id %></td>
-          <td><%= car.user_id %></td>
-          <td><%= car.make %></td>
-          <td><%= car.model %></td>
-          <td><%= car.year %></td>
-          <td><%= car.type %></td>
-          <td><%= car.color %></td>
-          <td><%= car.body_type %></td>
-          <td><%= car.engine_type %></td>
-          <td><%= car.transmission %></td>
-          <td><%= car.audio_input %></td>
-          <td><%= car.bluetooth %></td>
-          <td><%= car.heated_seats %></td>
-          <td><%= car.sun_roof %></td>
-          <td><%= car.rearview_camera %></td>
-          <td><%= car.gps %></td>
-          <td><%= car.air_conditioner %></td>
-          <td><%= car.electric_doors %></td>
-          <td><%= car.electric_seats %></td>
-          <td><%= car.price %></td>
-          <td><%= car.fuel_type %></td>
-          <td><%= car.antilock_brake_system %></td>
-          <td><%= link_to 'Show', car %></td>
-          <td><%= link_to 'Edit', edit_car_path(car) %></td>
-          <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+<div class="row car-search-filter-controls form-style-5">
+  <div class="container">
+    <div class='col-sm-3'>
+      <div class="form-group">
+        <div>
+          <select class="form_control form_car-makers" name="car[vehichle_size]" id="car_vehichle_size">
+            <option value="">Select make</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class='col-sm-3'>
+      <div class="form-group">
+        <div>
+          <select class="form_control form_car-models" disabled="disabled" name="car[vehichle_size]" id="car_vehichle_size">
+            <option value="">Select model</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class='col-sm-3'>
+      <div class="form-group">
+        <div>
+          <select class="form_control form_car-types-filter" name="car[type]" id="car_type">
+            <option value="">Select type</option>
+            <option value="Car">Car</option>
+            <option value="SUV">SUV</option>
+            <option value="Truck">Truck</option>
+            <option value="Van">Van</option>
+            <option value="Minivan">Minivan</option>
+            <option value="RV">RV</option>
+            <option value="Bus">Bus</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class='col-sm-3'>
+      <div class="form-group">
+        <div>
+          <select class="form_control form_car-body-types-filter" name="car[body_type]" id="car_body_type">
+            <option value="">Select body type</option>
+            <option value="1">2dr Sedan</option>
+            <option value="2">4dr Sedan</option>
+            <option value="3">2dr SUV</option>
+            <option value="4">4dr SUV</option>
+            <option value="5">2dr Hatchback</option>
+            <option value="6">4dr Hatchback</option>
+            <option value="Convertible">Convertible</option>
+            <option value="8">Coup</option>
+            <option value="9">Cargo Minivan</option>
+            <option value="10">Cargo Van</option>
+            <option value="11">Convertible SUV</option>
+            <option value="12">Crew Cab Pickup</option>
+            <option value="13">Extended Cab Pickup</option>
+            <option value="14">Passenger Minivan</option>
+            <option value="15">Passenger Van</option>
+            <option value="16">Regular Cab Pickup</option>
+            <option value="17">Wagon</option>
+            <option value="18">Other</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+<div class="row search-results form-style-5">
+    <% if @cars.length == 0 %>
+        <p>Sorry, no results</p>
+    <% end %>
+    <% @cars.each do |car| %>
+        <a href="/cars/<%= car.id %>">
+            <div class="row price-per-day">
+                <div class="col-sm-4 col-sm-offset-4">
+                        <div class="pt-package-3-sm">
+                            <div class="pt-header-sm-sr" style="background-color:"+thirdPackageColor+";">
+                                <h3><%= car.year.to_s + ' ' + car.make + ' ' + car.model %></h3>
+                            </div>
+                        </div><!--/pt-package-3-->
+                </div><!--col-sm-4 col-sm-offset-4-->
+            </div><!--row price-per-day-->
+            <div class="row car-pics">
+                <div class="col-sm-4 col-sm-offset-4">
+                    <img class="car-pics-img" src="<%= car.pictures[0].path %>">
+                </div><!--col-sm-4 col-sm-offset-4-->
+            </div><!--/row car-pics-->
+        </a>
+    <% end %>
 </div>
-<br>

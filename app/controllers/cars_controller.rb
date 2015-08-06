@@ -1,11 +1,24 @@
 class CarsController < ApplicationController
   before_action :set_car, only: [:show, :edit, :update, :destroy]
-  before_action(:admin_only, :only => [:index, :destroy])
+  before_action(:admin_only, :only => [:destroy])
 
   # GET /cars
   # GET /cars.json
   def index
     @cars = Car.all
+
+    if params[:make]
+        @cars = @cars.where(make: params[:make])
+    end
+    if params[:model]
+      @cars = @cars.where(model: params[:model])
+    end
+    if params[:type]
+      @cars = @cars.where(type: params[:type])
+    end
+    if params[:bodytype]
+      @cars = @cars.where(type: params[:body_type])
+    end
   end
 
   # GET /cars/1
