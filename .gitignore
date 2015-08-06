@@ -11,3 +11,10 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore application configuration
+/config/application.yml
+
+# Ignore user uploaded files in localhost testng environment
+/public/uploads/*
+/public/uploads/car/avatars/*

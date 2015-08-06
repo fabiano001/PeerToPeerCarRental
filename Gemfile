@@ -31,6 +31,12 @@ gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.15.35'
 # multiple file uploads with carrier wave
 gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
+# figaro gem to make sure application configurations don't end up in public folder after app is deployed
+gem 'figaro'
+# this is so that carrierwave can work with amazon s3
+gem "fog"
+# nokogirl is a dependency for fog
+gem "nokogiri", "~> 1.6.0"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -22,3 +22,6 @@ git push heroku master
 
 6) Migrate DB in heroku
 heroku run rake db:migrate
+
+****** destroy app command *****
+heroku apps:destroy --app rent-my-car
