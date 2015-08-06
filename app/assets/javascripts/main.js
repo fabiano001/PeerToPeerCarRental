@@ -95,20 +95,21 @@ $('.form_car-makers').change(function() {
 // When user selects a car type, filter out accordinly
 $('.form_car-types-filter').change(function() {
 	var typeFilter = $('.form_car-types-filter').val();
-	window.location.href = "/cars/?type=" + typeFilter;
+	window.location.href = "/cars/?car_type=" + typeFilter;
 });
 
 // When user selects a car body type, filter out accordinly
 $('.form_car-body-types-filter').change(function() {
-	var bodyTypeFilter = $('.form_car-types-filter').val();
-	window.location.href = "/cars/?bodytype=" + bodyTypeFilter;
+	var bodyTypeFilter = $('.form_car-body-types-filter').val();
+	window.location.href = "/cars/?body_type=" + bodyTypeFilter;
 });
 
-// When user selects a car model, filter out accordinly
-$('.form_car-models-filter').change(function() {
-	var modelFilter = $('.form_car-models-filter').val();
-	window.location.href = "/cars/?model=" + modelFilter;
+// When user selects a car year, filter out accordinly
+$('.form_car-years-filter').change(function() {
+	var yearFilter = $('.form_car-years-filter').val();
+	window.location.href = "/cars/?year=" + yearFilter;
 });
+
 
 // When user selects a car make, filter out accordinly
 $('.form_car-makers-filter').change(function() {
@@ -118,16 +119,12 @@ $('.form_car-makers-filter').change(function() {
 
 // ****************************************** //
 
-// When user selects a car type, filter out accordinly
-$('.form_car-body-types-filter').change(function() {
-	var bodyTypeFilter = $('.form_car-types-filter').val();
-	window.location.href = "/cars/?bodytype=" + bodyTypeFilter;
-});
-
 // Call edmunds api to get list of car makers
 function callEdmundsApi(requestType){
 	// grab search query
 	var queryUrl = 'https://api.edmunds.com/api/vehicle/v2/makes?view=basic&fmt=json&api_key=vrmzr6w225qvt46z47gazvuy';
+	var new_car_class = $('.form_car-makers');
+	var search_car_class = $('.form_car-makers-filter');
 	console.debug('API Call Url:' + queryUrl);
 
 	// do ajax call to get car makers
@@ -136,7 +133,8 @@ function callEdmundsApi(requestType){
         success: (function(serverResponse){
             console.debug('Server Response: ' + serverResponse);
             if(requestType==="populateCarMakers"){
-            	loadCarMakersDropown(serverResponse);	
+            	loadCarMakersDropown(serverResponse, new_car_class);
+            	loadCarMakersDropown(serverResponse, search_car_class);	
             }
             else{
             	loadCarModelsDropdown(serverResponse);
@@ -149,9 +147,9 @@ function callEdmundsApi(requestType){
     });
 }
 
-function loadCarMakersDropown(serverResponse){
+function loadCarMakersDropown(serverResponse, classToUpdate){
 
-	var $form_car_makers = $('.form_car-makers');
+	var $form_car_makers = classToUpdate;
 
 	// populate car makers dropdown
     serverResponse.makes.forEach(function (carMaker, index) {

@@ -5,17 +5,18 @@
         <div>
           <select class="form_control form_car-makers-filter" name="car[vehichle_size]" id="car_vehichle_size">
             <option value="">Select make</option>
+            <option value="Any">Any</option>
           </select>
         </div>
       </div>
     </div>
     <div class='col-sm-3'>
-      <div class="form-group">
-        <div>
-          <select class="form_control form_car-models-filter" disabled="disabled" name="car[vehichle_size]" id="car_vehichle_size">
-            <option value="">Select model</option>
-          </select>
-        </div>
+        <div class="form-group">
+        <% years = (1960..Date.today.year).map{|year| %>
+          <% year.to_s %>
+        <% } %>
+        <%= select_tag(:car_year, options_for_select(years.reverse), {
+          :prompt => "Select year", :class => "form_control form_car-years-filter"}) %>
       </div>
     </div>
     <div class='col-sm-3'>
@@ -23,6 +24,7 @@
         <div>
           <select class="form_control form_car-types-filter" name="car[car_type]" id="car_type">
             <option value="">Select type</option>
+            <option value="Any">Any</option>
             <option value="Car">Car</option>
             <option value="SUV">SUV</option>
             <option value="Truck">Truck</option>
@@ -40,6 +42,7 @@
         <div>
           <select class="form_control form_car-body-types-filter" name="car[body_type]" id="car_body_type">
             <option value="">Select body type</option>
+            <option value="Any">Any</option>
             <option value="1">2dr Sedan</option>
             <option value="2">4dr Sedan</option>
             <option value="3">2dr SUV</option>

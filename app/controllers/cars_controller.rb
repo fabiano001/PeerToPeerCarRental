@@ -8,17 +8,26 @@ class CarsController < ApplicationController
     @cars = Car.all
 
     if params[:make]
+      unless (params[:make]=="Any") 
         @cars = @cars.where(make: params[:make])
+      end
     end
-    if params[:model]
-      @cars = @cars.where(model: params[:model])
+    if params[:year]
+      unless (params[:year]=="Any") 
+        @cars = @cars.where(year: params[:year])
+      end
     end
     if params[:car_type]
-      @cars = @cars.where(car_type: params[:car_type])
+      unless (params[:car_type]=="Any") 
+        @cars = @cars.where(car_type: params[:car_type])
+      end
     end
-    if params[:bodytype]
-      @cars = @cars.where(type: params[:body_type])
+    if params[:body_type]
+      unless (params[:body_type]=="Any") 
+        @cars = @cars.where(body_type: params[:body_type])
+      end
     end
+
   end
 
   # GET /cars/1
