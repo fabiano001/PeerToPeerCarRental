@@ -52,8 +52,8 @@
 					</div>
 
 					<div class="form-group">
-						<%= frm.select(:type, [['Car', 'Car'], ['SUV', 'SUV'], ['Truck', 'Truck'], ['Van', 'Van'], ['Minivan', 'Minivan'], ['RV', 'RV'], ['Bus', 'Bus'], ['Other', 'Other']], {
-							:prompt => "Select type"}, { :class => "form_control form_car-types"}) %>
+						<%= frm.select(:car_type, [['Car', 'Car'], ['SUV', 'SUV'], ['Truck', 'Truck'], ['Van', 'Van'], ['Minivan', 'Minivan'], ['RV', 'RV'], ['Bus', 'Bus'], ['Other', 'Other']], {
+							:prompt => "Select car type"}, { :class => "form_control form_car-types"}) %>
 					</div>
 
 					<div class="form-group">
@@ -101,7 +101,7 @@
 		</div>
 
 					<div class="form-group" class="custom-file-upload">	
-						<%= frm.file_field(:images, :multiple => true) %>
+						<%= frm.file_field(:avatars, :multiple => true, accept: "image/jpeg, image/jpg, image/gif, image/png") %>
 					</div>
 
 				</div><!--/col-sm-4-->

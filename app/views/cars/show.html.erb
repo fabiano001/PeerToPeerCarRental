@@ -36,7 +36,7 @@
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
-                    <% (0...@pictures.count).each do |index| %>
+                    <% (0...@car.avatars.count).each do |index| %>
                         <% if(index==0) %>
                             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                         <% else %>
@@ -46,14 +46,14 @@
                 </ol>
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner carousel-car-img" role="listbox">
-                    <% @pictures.each_with_index do |picture, index| %>
+                    <% @car.avatars.each_with_index do |picture, index| %>
                         <% if(index==0) %>
                             <div class="item active">
-                                <img src="<%= picture.path %>">
+                                <img src="<%= picture.url %>">
                             </div>
                         <% else %>
                             <div class="item">
-                                <img src="<%= picture.path %>">
+                                <img src="<%= picture.url %>">
                             </div>
                         <% end %>
                     <% end %>
@@ -99,7 +99,7 @@
 
             <p>
               <strong>Type:</strong>
-              <%= @car.type %>
+              <%= @car.car_type %>
             </p>
 
             <p>

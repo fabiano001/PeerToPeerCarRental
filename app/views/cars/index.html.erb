@@ -3,7 +3,7 @@
     <div class='col-sm-3'>
       <div class="form-group">
         <div>
-          <select class="form_control form_car-makers" name="car[vehichle_size]" id="car_vehichle_size">
+          <select class="form_control form_car-makers-filter" name="car[vehichle_size]" id="car_vehichle_size">
             <option value="">Select make</option>
           </select>
         </div>
@@ -12,7 +12,7 @@
     <div class='col-sm-3'>
       <div class="form-group">
         <div>
-          <select class="form_control form_car-models" disabled="disabled" name="car[vehichle_size]" id="car_vehichle_size">
+          <select class="form_control form_car-models-filter" disabled="disabled" name="car[vehichle_size]" id="car_vehichle_size">
             <option value="">Select model</option>
           </select>
         </div>
@@ -21,7 +21,7 @@
     <div class='col-sm-3'>
       <div class="form-group">
         <div>
-          <select class="form_control form_car-types-filter" name="car[type]" id="car_type">
+          <select class="form_control form_car-types-filter" name="car[car_type]" id="car_type">
             <option value="">Select type</option>
             <option value="Car">Car</option>
             <option value="SUV">SUV</option>
@@ -82,7 +82,7 @@
             </div><!--row price-per-day-->
             <div class="row car-pics">
                 <div class="col-sm-4 col-sm-offset-4">
-                    <img class="car-pics-img" src="<%= car.pictures[0].path %>">
+                    <img class="car-pics-img" src="<%= car.avatars[0].url %>">
                 </div><!--col-sm-4 col-sm-offset-4-->
             </div><!--/row car-pics-->
         </a>

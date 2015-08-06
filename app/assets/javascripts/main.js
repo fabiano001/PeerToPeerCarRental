@@ -105,14 +105,14 @@ $('.form_car-body-types-filter').change(function() {
 });
 
 // When user selects a car model, filter out accordinly
-$('.form_car-models').change(function() {
-	var modelFilter = $('.form_car-models').val();
+$('.form_car-models-filter').change(function() {
+	var modelFilter = $('.form_car-models-filter').val();
 	window.location.href = "/cars/?model=" + modelFilter;
 });
 
 // When user selects a car make, filter out accordinly
-$('.form_car-makers').change(function() {
-	var makeFilter = $('.form_car-makers').val();
+$('.form_car-makers-filter').change(function() {
+	var makeFilter = $('.form_car-makers-filter').val();
 	window.location.href = "/cars/?make=" + makeFilter;
 });
 

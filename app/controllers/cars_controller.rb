@@ -13,8 +13,8 @@ class CarsController < ApplicationController
     if params[:model]
       @cars = @cars.where(model: params[:model])
     end
-    if params[:type]
-      @cars = @cars.where(type: params[:type])
+    if params[:car_type]
+      @cars = @cars.where(car_type: params[:car_type])
     end
     if params[:bodytype]
       @cars = @cars.where(type: params[:body_type])
@@ -24,7 +24,6 @@ class CarsController < ApplicationController
   # GET /cars/1
   # GET /cars/1.json
   def show
-    @pictures = Picture.where("car_id = ?", params[:id])
   end
 
   # GET /cars/new
@@ -42,7 +41,7 @@ class CarsController < ApplicationController
     @car.user_id = current_user.id;
 
     if(@car.save)
-      flash[:notice] = "Created new concert succesfully"
+      flash[:notice] = "Your car listing is now available"
       redirect_to(@car)
     else
       puts("errors occurred creating new car")
@@ -50,7 +49,6 @@ class CarsController < ApplicationController
       @errors = @car.errors.full_messages
       @car = Car.new
       render("new")
-      # redirect_to(new_car_path)
     end
   end
 
@@ -86,6 +84,10 @@ class CarsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def car_params
-      params.require(:car).permit(:make, :model, :year, :type, :color, :body_type, :engine_type, :transmission, :audio_input, :bluetooth, :heated_seats, :sun_roof, :rearview_camera, :gps, :air_conditioner, :electric_doors, :electric_seats, :condition, :video, :description, :latitude, :longitude, :price, :address, :city, :state, :driven_wheels, :vehichle_size, :fuel_type, :antilock_brake_system)
+      params.require(:car).permit(:make, :model, :year, :car_type, :color, :body_type, :engine_type, 
+        :transmission, :audio_input, :bluetooth, :heated_seats, :sun_roof, :rearview_camera, :gps, 
+        :air_conditioner, :electric_doors, :electric_seats, :condition, :video, :description, :latitude, 
+        :longitude, :price, :address, :city, :state, :driven_wheels, :vehichle_size, :fuel_type, 
+        :antilock_brake_system, avatars: [])
     end
 end

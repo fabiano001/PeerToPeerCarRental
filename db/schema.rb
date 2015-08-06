@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150805172801) do
+ActiveRecord::Schema.define(version: 20150806051827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 20150805172801) do
     t.string   "make"
     t.string   "model"
     t.integer  "year"
-    t.string   "type"
+    t.string   "car_type"
     t.string   "color"
     t.string   "body_type"
     t.string   "engine_type"
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 20150805172801) do
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
     t.integer  "user_id"
+    t.json     "avatars"
   end
 
   add_index "cars", ["user_id"], name: "index_cars_on_user_id", using: :btree

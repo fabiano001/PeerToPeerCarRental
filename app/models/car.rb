@@ -1,8 +1,10 @@
+require 'carrierwave/orm/activerecord'
+
 class Car < ActiveRecord::Base
 	validates :make, presence: true
 	validates :model, presence: true
 	validates :year, presence: true
-	validates :type, presence: true
+	validates :car_type, presence: true
 	validates :color, presence: true
 	validates :body_type, presence: true
 	validates :engine_type, presence: true
@@ -17,4 +19,6 @@ class Car < ActiveRecord::Base
 	validates :user_id, presence: true
 
 	has_many :pictures
+
+	mount_uploaders :avatars, AvatarUploader
 end
