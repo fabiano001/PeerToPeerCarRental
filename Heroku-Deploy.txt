@@ -25,3 +25,6 @@ heroku run rake db:migrate
 
 ****** destroy app command *****
 heroku apps:destroy --app rent-my-car
+
+******** had to do this for the peer to peer app prior to pushing to git hub ********
+rake assets:precompile

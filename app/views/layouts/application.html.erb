@@ -44,7 +44,7 @@
                             <% unless (user_signed_in?) %>
                                 <%= link_to "Rent Now", "#", class: "login-link call-to-action", data: { redirect: "rent-now" } %>
                             <% else %>
-                                <%= link_to "Rent Now", car_search_path, class: "btn call-to-action" %>
+                                <%= link_to "Rent Now", car_search_path, class: "call-to-action" %>
                             <% end %>
                         </li>
                         <li>
