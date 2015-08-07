@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-    <div class="row price-per-day">
+    <div class="row price-per-day-show-page">
         <div class="col-sm-8 col-sm-offset-2">
             <% if(current_user.id==@car.user_id) %>
                  <a href="#">
@@ -30,7 +30,7 @@
                 </a>
             <% end %>
         </div><!--col-sm-8 col-sm-offset-2-->
-    </div><!--row price-per-day-->
+    </div><!--row price-per-day-show-page-->
     <div class="row car-pics">
         <div class="col-sm-8 col-sm-offset-2">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">

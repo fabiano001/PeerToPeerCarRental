@@ -70,24 +70,32 @@
 
 <div class="row search-results form-style-5">
     <% if @cars.length == 0 %>
-        <p>Sorry, no results</p>
+        <p>No cars met your search criteria. Please search again"</p>
     <% end %>
-    <% @cars.each do |car| %>
-        <a href="/cars/<%= car.id %>">
-            <div class="row price-per-day">
-                <div class="col-sm-4 col-sm-offset-4">
-                        <div class="pt-package-3-sm">
-                            <div class="pt-header-sm-sr" style="background-color:"+thirdPackageColor+";">
-                                <h3 class="show-car-page-banner"><%= car.year.to_s + ' ' + car.make + ' ' + car.model %></h3>
+
+    <div class="row">
+        <% @cars.each do |car| %>
+            <div class="col-sm-4">
+                <a href="/cars/<%= car.id %>">
+                    <div class="col-sm-12">
+                        <div class="row price-per-day">
+                            <div class="pt-package-3-sm">
+                                <div class="pt-header-sm-sr" style="background-color:"+thirdPackageColor+"; ">
+                                    <h3 class="show-car-page-banner"><%= car.year.to_s + ' ' + car.make + ' ' + car.model %></h3>
+                                </div>
+                            </div><!--/pt-package-3-->
+                        </div><!--/row price-per-day-->
+                        <div class="row car-pics">
+                            <div>
+                                <img class="car-pics-img" src="<%= car.avatars[0].url %>">
                             </div>
-                        </div><!--/pt-package-3-->
-                </div><!--col-sm-4 col-sm-offset-4-->
-            </div><!--row price-per-day-->
-            <div class="row car-pics">
-                <div class="col-sm-4 col-sm-offset-4">
-                    <img class="car-pics-img" src="<%= car.avatars[0].url %>">
-                </div><!--col-sm-4 col-sm-offset-4-->
-            </div><!--/row car-pics-->
-        </a>
-    <% end %>
+                        </div><!--/row car-pics-->
+                    </div><!--/col-sm-12-->
+                </a>
+            </div><!--/col-sm-4-->
+        <% end %>  
+    </div><!--/row-->
+</div>
+<div>
+    <%= link_to 'Go Back', '', class: "btn btn-success call-to-action carview-goback-btn" %>
 </div>
