@@ -1,6 +1,8 @@
 // Make header the size of screen
 $(document).on('ready', function (event) {
 
+	$('#car-price-banner').css("margin-bottom: 0px;");
+	
 	callEdmundsApi("populateCarMakers");
 
 	if(window.location.pathname==='/cars/new' || window.location.pathname==='/cars'){

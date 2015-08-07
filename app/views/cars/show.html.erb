@@ -7,7 +7,7 @@
                     <div class="pt-package-3">
                         <div class="pt-header" style="background-color:'+thirdPackageColor+';">
                             <h2> RENT NOW </h2>
-                          <h3>
+                          <h3 id="car-price-banner">
                             <span class="pt-currency">$</span>
                             <span class="pt-amount"><%= @car.price %></span>
                             <span class="pt-terms">/day</span>
@@ -70,153 +70,119 @@
             </div>
         </div><!--/col-sm-8 col-sm-offset-1-->
     </div><!--row-->
-    <div class="row car-description">
-        <div class="col-sm-8 col-sm-offset-1">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 car-tagline">
             <p>
-              <strong>Description:</strong>
+            <!-- Title { font-size: 2.5em; width: 80%; text-align: center; } -->
+              <%= @car.make %> <%= @car.model %> <%= @car.year %>
+            </p>
+        </div><!--col-sm-4 col-sm-offset-4-->
+    </div><!--/row-->
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 car-description">
+            <p>
               <%= @car.description %>
             </p>
         </div><!--col-sm-4 col-sm-offset-4-->
     </div><!--/row-->
-<div class="car-details">
-    <div class="row">
-        <div class="col-sm-4">
+<div>
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2 car-details">
+    <div class="col-sm-4">
+        <p class="car-spec">
+          <strong>Type:</strong>
+          <%= @car.car_type %>
+        </p>
 
-            <p>
-              <strong>Make:</strong>
-              <%= @car.make %>
-            </p>
+        <p class="car-spec">
+          <strong>Color:</strong>
+          <%= @car.color %>
+        </p>
 
-            <p>
-              <strong>Model:</strong>
-              <%= @car.model %>
-            </p>
+        <p class="car-spec">
+          <strong>Body type:</strong>
+          <%= @car.body_type %>
+        </p>
 
-            <p>
-              <strong>Year:</strong>
-              <%= @car.year %>
-            </p>
+        <p class="car-spec">
+          <strong>Engine type:</strong>
+          <%= @car.engine_type %>
+        </p>
 
-            <p>
-              <strong>Type:</strong>
-              <%= @car.car_type %>
-            </p>
+         <p class="car-spec">
+          <strong>Gps:</strong>
+          <%= @car.gps %>
+        </p>
 
-            <p>
-              <strong>Color:</strong>
-              <%= @car.color %>
-            </p>
+        <p class="car-spec">
+          <strong>Air conditioner:</strong>
+          <%= @car.air_conditioner %>
+        </p>
 
-            <p>
-              <strong>Body type:</strong>
-              <%= @car.body_type %>
-            </p>
+    </div><!--col-sm-4-->
+    <div class="col-sm-4">
+        <p class="car-spec">
+          <strong>Transmission:</strong>
+          <%= @car.transmission %>
+        </p>
 
-            <p>
-              <strong>Engine type:</strong>
-              <%= @car.engine_type %>
-            </p>
+        <p class="car-spec">
+          <strong>Electric doors:</strong>
+          <%= @car.electric_doors %>
+        </p>
 
-        </div><!--col-sm-4-->
-        <div class="col-sm-4">
-            <p>
-              <strong>Transmission:</strong>
-              <%= @car.transmission %>
-            </p>
+        <p class="car-spec">
+          <strong>Electric seats:</strong>
+          <%= @car.electric_seats %>
+        </p>
 
-            <p>
-              <strong>Audio input:</strong>
-              <%= @car.audio_input %>
-            </p>
+        <p class="car-spec">
+          <strong>Condition:</strong>
+          <%= @car.condition %>
+        </p>
 
-            <p>
-              <strong>Bluetooth:</strong>
-              <%= @car.bluetooth %>
-            </p>
+         <p class="car-spec">
+          <strong>Bluetooth:</strong>
+          <%= @car.bluetooth %>
+        </p>
 
-            <p>
-              <strong>Heated seats:</strong>
-              <%= @car.heated_seats %>
-            </p>
+        <p class="car-spec">
+          <strong>Heated seats:</strong>
+          <%= @car.heated_seats %>
+        </p>
+    </div><!--col-sm-4-->
+    <div class="col-sm-4">
+        <p class="car-spec">
+          <strong>Vehichle size:</strong>
+          <%= @car.vehichle_size %>
+        </p>
 
-            <p>
-              <strong>Sun roof:</strong>
-              <%= @car.sun_roof %>
-            </p>
+        <p class="car-spec">
+          <strong>Fuel type:</strong>
+          <%= @car.fuel_type %>
+        </p>
 
-            <p>
-              <strong>Rearview camera:</strong>
-              <%= @car.rearview_camera %>
-            </p>
+        <p class="car-spec">
+          <strong>Antilock brake system:</strong>
+          <%= @car.antilock_brake_system %>
+        </p>
+         <p class="car-spec">
+          <strong>Audio input:</strong>
+          <%= @car.audio_input %>
+        </p>
 
-            <p>
-              <strong>Gps:</strong>
-              <%= @car.gps %>
-            </p>
+        <p class="car-spec">
+          <strong>Sun roof:</strong>
+          <%= @car.sun_roof %>
+        </p>
 
-            <p>
-              <strong>Air conditioner:</strong>
-              <%= @car.air_conditioner %>
-            </p>
-
-            <p>
-              <strong>Electric doors:</strong>
-              <%= @car.electric_doors %>
-            </p>
-
-            <p>
-              <strong>Electric seats:</strong>
-              <%= @car.electric_seats %>
-            </p>
-
-            <p>
-              <strong>Condition:</strong>
-              <%= @car.condition %>
-            </p>
-        </div><!--col-sm-4-->
-        <div class="col-sm-4">
-            <p>
-              <strong>Price:</strong>
-              <%= @car.price %>
-            </p>
-
-            <p>
-              <strong>Address:</strong>
-              <%= @car.address %>
-            </p>
-
-            <p>
-              <strong>City:</strong>
-              <%= @car.city %>
-            </p>
-
-            <p>
-              <strong>State:</strong>
-              <%= @car.state %>
-            </p>
-
-            <p>
-              <strong>Driven wheels:</strong>
-              <%= @car.driven_wheels %>
-            </p>
-
-            <p>
-              <strong>Vehichle size:</strong>
-              <%= @car.vehichle_size %>
-            </p>
-
-            <p>
-              <strong>Fuel type:</strong>
-              <%= @car.fuel_type %>
-            </p>
-
-            <p>
-              <strong>Antilock brake system:</strong>
-              <%= @car.antilock_brake_system %>
-            </p>
-        </div><!--/col-sm-4-->
-    </div><!--/row-->
-</div><!--/car-details-->
+        <p class="car-spec">
+          <strong>Rearview camera:</strong>
+          <%= @car.rearview_camera %>
+        </p>
+    </div><!--/col-sm-4-->
+  </div><!--col-sm-8 col-sm-offset-2 car-details-->
+</div><!--/row-->
     <%= link_to 'Go Back', '', class: "btn btn-success call-to-action carview-goback-btn" %>
     <% if(current_user.id==@car.user_id) %>
         <%= link_to 'Edit', edit_car_path(@car), class: "btn btn-success call-to-action" %>

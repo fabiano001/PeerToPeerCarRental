@@ -25,6 +25,31 @@
     margin-bottom: 3%;
 }
 
+.car-description  p {
+    padding: 1%;
+    font-size: 14px;
+    line-height: 25px;
+}
+
+.car-tagline p {
+    margin-bottom: -2%;
+    padding: 1%;
+   margin-bottom: 2%;
+    font-size: 2.5em; 
+    width: 100%; 
+    text-align: center;
+}
+
+.car-tagline {
+    margin-bottom: -2%;
+}
+
+.car-spec {
+    background-color: rgba(255,255,255,0.5);
+    padding: 5%;
+    border-radius: 6px;
+}
+
 .form-style-5 input[type="text"],
 .form-style-5 input[type="date"],
 .form-style-5 input[type="datetime"],
@@ -123,7 +148,8 @@
 }
 
 .car-description,
-.car-details {
+.car-details,
+.car-tagline {
     background-color: rgba(0,0,0,0.3);
     border-radius: 6px;
     padding: 1%;

@@ -165,7 +165,17 @@ body {
 
 .carousel-control,
 .carousel-control:hover {
-	/*background-color: #fff;*/
 	background-color: rgba(255,255,255,0.5);
+}
 
+.car-details {
+	margin-top: -1%;
+}
+
+.price-per-day {
+	margin-top: -5%
+}
+
+#car-price-banner {
+	margin-bottom: 0px;
 }
