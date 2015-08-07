@@ -31,7 +31,7 @@
                             <div class="carousel-inner carousel-car-img" role="listbox">
                                 <% @cars.each_with_index do |car, index| %>
                                     <div class="item <%= 'active' if index == 0 %> carousel-item">
-                                        <a href='/cars/<%= car.id %>' class="<%= 'login-link' unless current_user %>" data-redirect="show-featured-car">
+                                        <a href='/cars/<%= car.id %>' class="<%= 'login-link' unless current_user %>" data-redirect="show-featured-car" data-carid="<%= car.id %>">
                                             <div class="pt-package-3-sm">
                                                 <div class="pt-header-sm" style="background-color:'+thirdPackageColor+';">
                                                     <h3>

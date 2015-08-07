@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     elsif (session[:login_redirect] == 'rent-now')
       car_search_path
     elsif (session[:login_redirect] == 'show-featured-car')
-      car_id = session[:car_id] ? session[:car_id] : 5
+      car_id = session[:car_id] ? session[:car_id] : 1
       car_path(car_id)
     else
       home_path
