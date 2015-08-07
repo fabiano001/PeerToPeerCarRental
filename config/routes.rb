@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   post '/cache-users-search' => 'pages#cache_search_results_api'
   get '/rent-confirmation' => 'pages#rent_confirmation', as: :rent_car
   post '/redirect/:type' => 'pages#redirect'
+  get '/rental_summary' => 'pages#rental_summary'
 
 end
 

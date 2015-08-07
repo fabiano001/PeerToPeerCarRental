@@ -40,8 +40,12 @@ class PagesController < ApplicationController
 	end
 
 	def rent_confirmation
-	    render("confirmation")
-	  end
+	   render("confirmation")
+	end
+
+	def rental_summary
+		render("rental_summary")
+	end
 
 	def redirect
 		session[:login_redirect] = params[:type]
