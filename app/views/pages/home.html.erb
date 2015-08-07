@@ -40,7 +40,11 @@
                                                     </h3>
                                                 </div>       
                                             </div><!--/pt-package-3-->
-                                            <img class="<%= 'login-link' unless current_user %>" src="<%= car.avatars[0].url %>" data-redirect="show-featured-car">
+                                            <% if(car.avatars.count>0) %>
+                                                <img class="<%= 'login-link' unless current_user %>" src="<%= car.avatars[0].url %>" data-redirect="show-featured-car">
+                                            <% else %>
+                                                <img class="<%= 'login-link' unless current_user %>" src="/2.jpg" data-redirect="show-featured-car">
+                                            <% end %>
                                         </a>
                                     </div>
                                 <% end %>

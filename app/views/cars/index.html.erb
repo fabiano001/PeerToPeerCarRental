@@ -87,7 +87,11 @@
                         </div><!--/row price-per-day-->
                         <div class="row car-pics">
                             <div>
+                            <% if(car.avatars.count>0) %>
                                 <img class="car-pics-img" src="<%= car.avatars[0].url %>">
+                            <% else %>
+                                <img class="car-pics-img" src="images/2.jpg">
+                            <% end %>
                             </div>
                         </div><!--/row car-pics-->
                     </div><!--/col-sm-12-->
