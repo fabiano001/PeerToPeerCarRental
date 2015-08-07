@@ -38,35 +38,35 @@
                             <a href="#page-top"></a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="/  ">Home</a>
+                            <a class="page-scroll" href="/  "><%= t('home') %></a>
                         </li>
                         <li>
                             <% unless (user_signed_in?) %>
-                                <%= link_to "Rent Now", "#", class: "login-link call-to-action", data: { redirect: "rent-now" } %>
+                                <%= link_to t('rent_now'), "#", class: "login-link call-to-action", data: { redirect: "rent-now" } %>
                             <% else %>
-                                <%= link_to "Rent Now", car_search_path, class: "call-to-action" %>
+                                <%= link_to t('rent_now'), car_search_path, class: "call-to-action" %>
                             <% end %>
                         </li>
                         <li>
                              <% unless (user_signed_in?) %>
-                                <%= link_to "List Your Car", "#", class: "login-link btn call-to-action", data: { redirect: "list-your-car" } %>
+                                <%= link_to t('list_your_car'), "#", class: "login-link btn call-to-action", data: { redirect: "list-your-car" } %>
                             <% else %>
-                                <%= link_to "List Your Car", new_car_path, class: "call-to-action" %>
+                                <%= link_to t('list_your_car'), new_car_path, class: "call-to-action" %>
                             <% end %>
                         </li>
                         <% if(current_user) %>
                         <li>
-                            <%= link_to "My Account", "/account"%>
+                            <%= link_to t('my_account'), "/account"%>
                         </li>
                         <li>
-                            <%= link_to "Logout", destroy_user_session_path, method: :delete%>
+                            <%= link_to t("Logout"), destroy_user_session_path, method: :delete%>
                         </li>
                         <% else %>
                         <li>
-                            <%= link_to "Sign Up", "#", class: "signup-link" %>
+                            <%= link_to t('Sign_up'), "#", class: "signup-link" %>
                         </li>
                         <li>
-                            <%= link_to "Log In", "#", class: "login-link" %>
+                            <%= link_to t("Log_In"), "#", class: "login-link" %>
                         </li>
                         <% end %>
                     </ul>
@@ -101,15 +101,15 @@
                 <div class="modal fade js-modal-login">
                     <div class="col-md-4 col-md-offset-4">
                         <form class="form-signin" role="form" action="/login" method="post">
-                            <h2 class="form-signin-heading">LOGIN</h2>
+                            <h2 class="form-signin-heading"><%= t("Log_In") %></h2>
                             <div class="form-group">
                                 <input type="email" name="user[email]" class="form-control input-lg" placeholder="E-mail address" required autofocus>
                             </div>
                             <div class="form-group">
                                 <input type="password" name="user[password]" class="form-control input-lg" placeholder="Password" required>
                             </div>
-                            <button class="btn btn-lg btn-primary btn-block" type="submit">LOGIN</button><br><span class="login-sm-font">
-                            Need an account? <a class="page-scroll signup-link call-to-action-2" href="#">Sign up</a> now!</span>
+                            <button class="btn btn-lg btn-primary btn-block" type="submit"><%= t("Log_In") %></button><br><span class="login-sm-font">
+                            Need an account? <a class="page-scroll signup-link call-to-action-2" href="#"><%= t("Sign_up") %></a> now!</span>
                         </form>
                     </div>
                 </div>
@@ -120,7 +120,7 @@
                 <div class="modal fade js-modal-signup">
                     <div class="col-sm-4 col-sm-offset-4">
                         <form class="form-signin" role="form"  action="/" method="post">
-                            <h2 class="form-signin-heading">SIGN UP</h2>
+                            <h2 class="form-signin-heading"><%= t("Sign_up") %></h2>
                             <div class="form-group">
                                 <input type="email" name="user[email]" class="form-control input-lg" placeholder="E-mail address" required autofocus>
                             </div>
@@ -134,7 +134,7 @@
                                 <input type="password" name="user[password_confirmation]" class="form-control input-lg" placeholder="Re-enter Password" required>
                             </div>
                             <button class="btn btn-lg btn-primary btn-block" type="submit">REGISTER</button><br><span class="login-sm-font">
-                            Already have an account? <a class="page-scroll login-link call-to-action-2" href="#">Login</a> now!</span>
+                            Already have an account? <a class="page-scroll login-link call-to-action-2" href="#"><%= t("Log_In") %></a> now!</span>
                         </form>
                     </div> <!-- col-sm-4 -->
                 </div> <!-- modal -->
@@ -144,7 +144,7 @@
             <div class="container" id="footer-container">
                 <div class="row">
                     <div class="col-md-4">
-                        <span class="copyright">Copyright &copy; Rent My Car 2014</span>
+                        <span class="copyright"><%= t("Copyright") %> &copy; Rent My Car 2014</span>
                     </div>
                     <div class="col-md-4">
                         <ul class="list-inline social-buttons">
@@ -155,8 +155,8 @@
                     </div>
                     <div class="col-md-4">
                         <ul class="list-inline quicklinks">
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms of Use</a></li>
+                            <li><a href="#"><%= t("Privacy_Policy") %></a></li>
+                            <li><a href="#"><%= t("Terms_of_Use") %></a></li>
                         </ul>
                     </div>
                 </div>
